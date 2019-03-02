@@ -9,8 +9,10 @@ This are useful scripts for biodiversity data cleaning, processing and quality c
 
 
 For each of the scripts, example runs have been provided.
-**Example data*
-> [speciesList.csv](speciesList.csv)
+
+
+**Example data: **
+- [speciesList.csv](speciesList.csv)
 
 
 ## 1) Retrieving Conservation Status and Population Trend (IUCN)
