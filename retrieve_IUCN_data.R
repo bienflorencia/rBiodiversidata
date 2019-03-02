@@ -1,12 +1,9 @@
-###########################################
-# 1) IUCN category retrieving
-###########################################
+#############################################
+# IUCN Status Category and Population Trend #
+#############################################
 
 library(rredlist)
 library(tidyverse)
-
-# Species List
-canids <- c('Cerdocyon thous', 'Lycalopex gymnocercus', 'Chrysocyon brachyurus')
 
 # Fuction
 retrieve_IUCN_status <- function(speciesList){
@@ -19,7 +16,7 @@ retrieve_IUCN_status <- function(speciesList){
                                    Status = 'NA', 
                                    Trend = 'NA', stringsAsFactors=FALSE)
       IUCN_status <- rbind(IUCN_status, IUCN_status_sp)
-      cat(sp,'Check species name\n')
+      cat(sp,'----- CHECK\n')
     }
     else {
       IUCN_status_sp <- data.frame(Species = UICN_search$result$scientific_name, 
@@ -33,7 +30,12 @@ retrieve_IUCN_status <- function(speciesList){
   return(IUCN_status)
 }
 
+# 1) Species List
+canids <- c('Cerdocyon thous', 'Lycalopex gymnocercus', 'Chrysocyon brachyurus')
 # Run
 retrieve_IUCN_status(canids)
 
-
+# 2) Data from table
+mammals <- read_csv('speciesList.csv')
+# Run
+retrieve_IUCN_status(mammals$Species)
