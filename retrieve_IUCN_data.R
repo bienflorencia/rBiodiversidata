@@ -2,8 +2,8 @@
 # 1) IUCN category retrieving
 ###########################################
 
-install.packages('rredlist')
 library(rredlist)
+library(tidyverse)
 
 # Species List
 canids <- c('Cerdocyon thous', 'Lycalopex gymnocercus', 'Chrysocyon brachyurus')
