@@ -2,7 +2,7 @@
 Code for Biodiversidata Project.
 Useful scripts for biodiversity data cleaning.
 
-Example data [occurrenceRecords.csv](occurrenceRecords.csv)
+Example data [speciesList.csv](speciesList.csv)
 
 ## Retrieving Conservation Status and Population Trend (IUCN)
 
