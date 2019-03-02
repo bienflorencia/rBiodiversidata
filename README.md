@@ -2,3 +2,22 @@
 Code for Biodiversidata Project
 
 Useful scripts for biodiversity data cleaning
+
+## Retrieving Conservation Status and Population Trend (IUCN)
+
+[retrieve_IUCN_data.R](retrieve_IUCN_data.R)
+
+This scripts uses the R package [rredlist](https://CRAN.R-project.org/package=rredlist) and works with the IUCN Red List API.
+To use the API:
+- Create a token http://apiv3.iucnredlist.org/api/v3/token
+- Once you receive the token create an environmental variable in your system. It should be named IUCN_REDLIST_KEY. See https://www.java.com/en/download/help/path.xml 
+
+
+## Checking Species Names and Retrieving Taxonomic Information
+
+[update_taxonomy.R](update_taxonomy.R)
+
+This scripts uses the R package [taxize](https://github.com/ropensci/taxize).
+
+
+
