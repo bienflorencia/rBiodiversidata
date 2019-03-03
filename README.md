@@ -15,7 +15,7 @@ For each of the scripts, example runs have been provided.
 
 ## 1) Retrieving Conservation Status and Population Trend (IUCN)
 
-The script contains a function that takes a species list as input and returns a dataframe with 3 columns containing Species Name, Conservation Status and Popultaion Trend, according to the IUCN Red List. The run will return the result of the search for each species in the list, printing the result also in the console screen and a 'CHECK' warning when the species name is not found in the Red List search. This may happen for two reasons, either the species has not been assessed by the IUCN or the species name needs to be checked. To check species name, see [Checking Species Names](## 2) Checking Species Names ).
+The script contains a function that takes a species list as input and returns a dataframe with 3 columns containing Species Name, Conservation Status and Popultaion Trend, according to the IUCN Red List. The run will return the result of the search for each species in the list, printing the result also in the console screen and a 'CHECK' warning when the species name is not found in the Red List search. This may happen for two reasons, either the species has not been assessed by the IUCN or the species name needs to be checked. To check species name, see [Checking Species Names](##2)-Checking-Species-Names).
 
 > [retrieve_IUCN_data.R](retrieve_IUCN_data.R)
 
