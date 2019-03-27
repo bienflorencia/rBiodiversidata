@@ -46,4 +46,5 @@ The script contains a function that...
 This script uses the R package [taxize](https://github.com/ropensci/taxize).
 
 <br>
+
 ##### For more information about Biodiversidata or the code, contact [Florencia Grattarola](fgrattarola@lincoln.ac.uk)
