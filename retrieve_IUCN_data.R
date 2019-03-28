@@ -25,8 +25,6 @@ retrieve_IUCN_data <- function(speciesList){
                                    Status = UICN_search$result$category, 
                                    Trend = UICN_search$result$population_trend, stringsAsFactors=FALSE)
       IUCN_status <- rbind(IUCN_status, IUCN_status_sp)
-      cat(sp, UICN_search$result$category, 
-          UICN_search$result$population_trend, '\n')
     }
   }
   return(IUCN_status)
@@ -36,18 +34,28 @@ retrieve_IUCN_data <- function(speciesList){
 # RUN
 
 # 1) Species List
-canids <- c('Cerdocyon thous', 'Lycalopex gymnocercus', 'Chrysocyon brachyurus', 'Wrong species')
+canids <- c('Cerdocyon thous', 'Lycalopex gymnocercus', 'Chrysocyon brachyurus', 'AnyWrong species')
 canids_IUCN_data <- retrieve_IUCN_data(canids)
 
 ## The fuction will print in console
-# Cerdocyon thous LC Stable 
-# Lycalopex gymnocercus LC Stable 
-# Chrysocyon brachyurus NT Unknown 
-# Wrong species ------ CHECK
+# AnyWrong species ----- CHECK
+
+canids_IUCN_data
+#                 Species Status   Trend
+# 1       Cerdocyon thous     LC  Stable
+# 2 Lycalopex gymnocercus     LC  Stable
+# 3 Chrysocyon brachyurus     NT Unknown
+# 4      AnyWrong species     NA      NA
+
 
 # 2) Data from table
 mammals <- read_csv('speciesList.csv')
 mammlas_IUCN_data <- retrieve_IUCN_data(mammals$Species)
+
+## The fuction will print in console
+# Leopardus braccatus ----- CHECK
+# Puma yagouaroundi ----- CHECK
+# No species ----- CHECK
 
 mammlas_IUCN_data
 #                      Species Status      Trend
@@ -71,6 +79,6 @@ mammlas_IUCN_data
 # 18     Didelphis albiventris     LC     Stable
 # 19           Lepus europaeus     LC Decreasing
 # 20            Cuniculus paca     LC     Stable
-# 21          Coendou spinosus     LC    Unknown
+# 21                No species     NA         NA
 # 22 Hydrochoerus hydrochaeris     LC     Stable
 # 23     Tamandua tetradactyla     LC    Unknown
