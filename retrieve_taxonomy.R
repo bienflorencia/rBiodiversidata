@@ -14,7 +14,7 @@ get_classification <- function(species){
                                 Phylum = character(),
                                 Class = character(),
                                 Order = character(),
-                                Familiy = character(), stringsAsFactors=FALSE)
+                                Family = character(), stringsAsFactors=FALSE)
   for(sp in species) {
     sp_classif <- classification(get_tsn(sp, rows=1), db='itis', start=1)
     if (length(sp_classif[[1]])!=3){
@@ -23,7 +23,7 @@ get_classification <- function(species){
                                        Phylum = 'NA',
                                        Class = 'NA',
                                        Order = 'NA',
-                                       Familiy = 'NA', stringsAsFactors=FALSE)
+                                       Family = 'NA', stringsAsFactors=FALSE)
       species_classif <- rbind(species_classif, species_classif_sp)
       cat(sp, ': NOT FOUND \n')
     } 
@@ -33,7 +33,7 @@ get_classification <- function(species){
                                        Phylum = sp_classif[[1]]$name[sp_classif[[1]]$rank=='phylum'],
                                        Class = sp_classif[[1]]$name[sp_classif[[1]]$rank=='class'],
                                        Order = sp_classif[[1]]$name[sp_classif[[1]]$rank=='order'],
-                                       Familiy = sp_classif[[1]]$name[sp_classif[[1]]$rank=='family'],
+                                       Family = sp_classif[[1]]$name[sp_classif[[1]]$rank=='family'],
                                        stringsAsFactors=FALSE)
       species_classif <- rbind(species_classif, species_classif_sp)
     }
