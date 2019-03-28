@@ -1,5 +1,5 @@
 # rBiodiversidata
-### Code for Biodiversidata Project.
+### Code used for the Biodiversidata Project.
 
 This are useful scripts for biodiversity data cleaning, processing and quality controlling.
 
@@ -15,9 +15,11 @@ For each of the scripts, example runs have been provided.
 
 ## 1) Retrieving Conservation Status and Population Trend (IUCN)
 
-The script contains a function that takes a species list as input and returns a dataframe with 3 columns containing Species Name, Conservation Status and Popultaion Trend, according to the IUCN Red List. The run will return the result of the search for each species in the list, printing the result also in the console screen and a 'CHECK' warning when the species name is not found in the Red List search. This may happen for two reasons, either the species has not been assessed by the IUCN or the species name needs to be checked. To check species name, see [Checking Species Names](#checking-species-names).
+The script contains a function that takes a species list as input and returns a dataframe with 3 columns containing Species Name, Conservation Status and Popultaion Trend, according to the IUCN Red List. The run will return the result of the search for each species in the list, printing in the console screen a 'CHECK' warning when the species name is not found in the Red List search. This may happen for two reasons, either the species has not been assessed by the IUCN or the species name needs to be checked. To check species name, see [Checking Species Names](#2-checking-species-names).
 
 > [retrieve_IUCN_data.R](retrieve_IUCN_data.R)
+
+<br>
 
 *Note*
 - This script uses the rl_search() from the [rredlist](https://CRAN.R-project.org/package=rredlist) package and works with the IUCN Red List API.
@@ -43,4 +45,6 @@ The script contains a function that...
 
 This script uses the R package [taxize](https://github.com/ropensci/taxize).
 
+<br>
 
+### For more information about Biodiversidata or the code, contact [Florencia Grattarola](fgrattarola@lincoln.ac.uk)
