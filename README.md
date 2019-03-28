@@ -30,20 +30,20 @@ The script contains a function that takes a species list as input and returns a 
 
 ## 2) Checking Species Names 
 
-The script contains a function that...
+The script contains a function that takes a species list as input and returns a dataframe with two columns: Species Name and Observation. The run will return the result of the check for each species in the list, doing it first with ITIS database (Integrated Taxonomic Information System) and then with IUCN database (IUCN Red List of Threatened Species) case the species is not found in ITIS. If the species has a match in any of the databases, it will return the same Species Name and 'Ok ITIS' or 'Ok IUCN' as Observation. If the species has a match with any error of spelling, it will return the matched correct name in Species Name and 'Checked ITIS' or 'Checked IUCN' as Observation. If the species is not found in any of the databases, it will return 'NOT FOUND in ITIS or IUCN' as Observation.
 
 > [check_species_names.R](check_species_names.R)
 
-This script uses the R package [taxize](https://github.com/ropensci/taxize).
+This script uses the function gnr_resolve() from the R package [taxize](https://github.com/ropensci/taxize).
 
 
 ## 3) Retrieving Taxonomic Information for a Species
 
-The script contains a function that...
+The script contains a function that takes a species list as input and returns a dataframe with 6 columns: Species, Kingdom, Phylum, Class, Order and Family. The run will retrieve the taxonomic hierarchy for each species in the list, queried in ITIS database. If the species is not found in the database a 'NOT FOUND' warning will be printed in the console.
 
 > [retrieve_taxonomy.R](retrieve_taxonomy.R)
 
-This script uses the R package [taxize](https://github.com/ropensci/taxize).
+This script uses the function classification() from the R package [taxize](https://github.com/ropensci/taxize).
 
 <br>
 
