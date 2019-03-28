@@ -21,10 +21,6 @@ The script contains a function that takes a species list as input and returns a 
 
 This script uses the rl_search() from the [rredlist](https://CRAN.R-project.org/package=rredlist) package and works with the IUCN Red List API.
 
-<br>
-
-*Note*
-
 - To use the API:
   1. Create a token http://apiv3.iucnredlist.org/api/v3/token
   2. Once you receive the token create an environmental variable in your system. It should be named **IUCN_REDLIST_KEY**. See https://www.java.com/en/download/help/path.xml for more information. 
