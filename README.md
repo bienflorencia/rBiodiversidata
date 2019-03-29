@@ -19,7 +19,7 @@ The script contains a function that takes a species list as input and returns a 
 
 > [retrieve_IUCN_data.R](retrieve_IUCN_data.R)
 
-This script uses the rl_search() from the [rredlist](https://CRAN.R-project.org/package=rredlist) package and works with the IUCN Red List API.
+This script uses the rl_search() function from the [rredlist](https://CRAN.R-project.org/package=rredlist) package and works with the IUCN Red List API.
 
 - To use the API:
   1. Create a token http://apiv3.iucnredlist.org/api/v3/token
