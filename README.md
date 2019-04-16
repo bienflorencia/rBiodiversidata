@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/173409451.svg)](https://zenodo.org/badge/latestdoi/173409451)
+
 # rBiodiversidata
 ### Code used for the Biodiversidata Project.
 
