@@ -47,4 +47,4 @@ This script uses the function classification() from the R package [taxize](https
 
 <br>
 
-### For more information about Biodiversidata or the code, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)
+### For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)
