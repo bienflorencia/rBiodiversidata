@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/173409451.svg)](https://zenodo.org/badge/latestdoi/173409451)
+
 # rBiodiversidata
 ### Code used for the Biodiversidata Project.
 
@@ -6,6 +8,7 @@ This are useful scripts for biodiversity data cleaning, processing and quality c
 1. Retrieving Conservation Status and Population Trend (IUCN).
 2. Checking Species Names.
 3. Retrieving Taxonomic Information for a Species.
+4. Get Scientific Name Authorship
 
 
 For each of the scripts, example runs have been provided.
@@ -19,7 +22,7 @@ The script contains a function that takes a species list as input and returns a 
 
 > [retrieve_IUCN_data.R](retrieve_IUCN_data.R)
 
-This script uses the rl_search() from the [rredlist](https://CRAN.R-project.org/package=rredlist) package and works with the IUCN Red List API.
+This script uses the rl_search() function from the [rredlist](https://CRAN.R-project.org/package=rredlist) package and works with the IUCN Red List API.
 
 - To use the API:
   1. Create a token http://apiv3.iucnredlist.org/api/v3/token
@@ -43,6 +46,15 @@ The script contains a function that takes a species list as input and returns a 
 
 This script uses the function classification() from the R package [taxize](https://github.com/ropensci/taxize).
 
+
+## 4) Get Scientific Name Authorship
+
+The script contains a function that takes a species list as input and returns a dataframe with 2 columns: Species and Authorship. The run will retrieve the scientific name authorship for each species in the list by querying the scientific name in the ITIS database. If the species name is not found in the database a 'NOT FOUND' will be retrieved as Authorship. As well, if the species name has a low match in the search (i.e.: only the genus authorship is found but not the genus and specific epithet), 'NOT FOUND' will be retrieved as Authorship.
+
+> [get_scientificNameAuthorship.R](get_scientificNameAuthorship.R)
+
+This script uses the function gnr_resolve() from the R package [taxize](https://github.com/ropensci/taxize).
+
 <br>
 
-### For more information about Biodiversidata or the code, contact [Florencia Grattarola](fgrattarola@lincoln.ac.uk)
+### For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)
