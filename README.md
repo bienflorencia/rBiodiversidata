@@ -8,6 +8,7 @@ This are useful scripts for biodiversity data cleaning, processing and quality c
 1. Retrieving Conservation Status and Population Trend (IUCN).
 2. Checking Species Names.
 3. Retrieving Taxonomic Information for a Species.
+4. Get Scientific Name Authorship
 
 
 For each of the scripts, example runs have been provided.
@@ -44,6 +45,15 @@ The script contains a function that takes a species list as input and returns a 
 > [retrieve_taxonomy.R](retrieve_taxonomy.R)
 
 This script uses the function classification() from the R package [taxize](https://github.com/ropensci/taxize).
+
+
+## 4) Get Scientific Name Authorship
+
+The script contains a function that takes a species list as input and returns a dataframe with 2 columns: Species and Authorship. The run will retrieve the scientific name authorship for each species in the list by querying the scientific name in the ITIS database. If the species name is not found in the database a 'NOT FOUND' will be retrieved as Authorship. As well, if the species name has a low match in the search (i.e.: only the genus authorship is found but not the genus and specific epithet), 'NOT FOUND' will be retrieved as Authorship.
+
+> [get_scientificNameAuthorship.R](get_scientificNameAuthorship.R)
+
+This script uses the function gnr_resolve() from the R package [taxize](https://github.com/ropensci/taxize).
 
 <br>
 
