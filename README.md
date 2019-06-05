@@ -5,7 +5,7 @@
 
 
 # rBiodiversidata
-### Code used for the [Biodiversidata](biodiversidata.org) Project.
+### Code used for the [Biodiversidata](https://biodiversidata.org) Project.
 
 This are useful scripts for biodiversity data cleaning, processing and quality controlling.
 
