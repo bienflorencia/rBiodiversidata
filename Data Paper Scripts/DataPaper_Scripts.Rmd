@@ -2,7 +2,7 @@
 title: "Scripts for the Data Paper"
 author: "Florencia Grattarola"
 date: "12 June 2019"
-output: html_document
+output: md_document
 ---
 
 ```{r setup, include=FALSE}
