@@ -7,12 +7,12 @@ We aim to  make the biodiversity data of Uruguay available by integrating a broa
 
 You can find here:
   - [Useful R Scripts for Data Cleaning & Standardisation](/Data%20Paper%20Scripts)
-  - Scripts used for the Data Paper "Biodiversidata: An Open-Access Biodiversity Database for Uruguay"
-  - Directory of useful files
+  - [Scripts used for the Data Paper "Biodiversidata: An Open-Access Biodiversity Database for Uruguay"](/Data%20Paper%20Scripts)
+  - [Directory of useful files](/Useful%20files)
 
 
 <br>
 
-### Check our website [biodiversidata.org](https://biodiversidata.org/) and follow us on twitter [@biodiversidata](https://twitter.com/biodiversidata)  
+## Check our website [biodiversidata.org](https://biodiversidata.org/) and follow us on twitter [@biodiversidata](https://twitter.com/biodiversidata)  
 
-## For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)
+#### For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)
