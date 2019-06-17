@@ -23,7 +23,7 @@ To run this code you will need the following R packages:
     library(dismo)
 
 We will see the data's:  
-1. [Taxonomic coverage](#1)taxonomic-coverage)  
+1. [Taxonomic coverage](#taxonomic-coverage)  
 2. [Temporal coverage](#temporal-coverage)  
 3. [Geographic coverage](#geographic-coverage)
 
