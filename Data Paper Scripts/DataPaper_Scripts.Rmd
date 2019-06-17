@@ -92,7 +92,7 @@ Biodiversidata %>% nrow()
 ### What's the total amount of species in the database?
 
 ```{r}
-Biodiversidata %>% distinct(scientificName) %>% nrow()
+Biodiversidata %>% count(scientificName)
 ```
 
 
