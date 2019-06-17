@@ -16,5 +16,3 @@ You can find here:
 ## Check our website [biodiversidata.org](https://biodiversidata.org/) and follow us on twitter [@biodiversidata](https://twitter.com/biodiversidata)  
 
 #### For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)  
-
-<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us20.list-manage.com","uuid":"00f4d5117d3f8606e15733030","lid":"6afd6ec382","uniqueMethods":true}) })</script>
