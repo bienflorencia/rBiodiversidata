@@ -84,7 +84,7 @@ Now that we are ready! Let's explore the data.
 
     ## [1] 673
 
-1) Taxonomic coverage
+1. Taxonomic coverage
 ---------------------
 
 The database includes records representing 129 families, 446 genera and
@@ -156,7 +156,7 @@ The database includes records representing 129 families, 446 genera and
 
 The taxonomic coverage is uneven!
 
-2) Temporal coverage
+2. Temporal coverage
 --------------------
 
 The records included in Biodiversidata cover samples reported in Uruguay
@@ -176,7 +176,7 @@ time within the groups?
 
 ![](DataPaper_Scripts_files/figure-markdown_strict/unnamed-chunk-8-1.png)
 
-3) Geographic coverage
+3. Geographic coverage
 ----------------------
 
 To finish let's map the records. First, we are going to download
