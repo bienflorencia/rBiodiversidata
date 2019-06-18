@@ -80,7 +80,7 @@ Now that we are ready! Let's explore the data.
 
 ### What's the total amount of species in the database?
 
-    Biodiversidata %>% count(scientificName)
+    Biodiversidata %>% distinct(scientificName) %>% nrow()
 
     ## [1] 673
 
