@@ -1,12 +1,4 @@
-This post has all the scripts used to generate the figures of the Data
-Paper **“Biodiversidata: An Open-Access Biodiversity Database for
-Uruguay”**, published in the Biodiversity Data Journal. The dataset
-**Biodiversidata\_1.0.0** provides primary biodiversity data on extant
-Amphibia, Reptilia, Aves and Mammalia species recorded within the
-country area of Uruguay. This is the largest and most geographically and
-taxonomically comprehensive database of Uruguayan tetrapod species
-available to date, and it represents the first open repository of the
-country.
+This post has all the scripts used to generate the figures of the Data Paper [**“Biodiversidata: An Open-Access Biodiversity Database for Uruguay”**](https://doi.org/10.3897/BDJ.7.e36226), published in the **Biodiversity Data Journal**. The dataset **Biodiversidata\_1.0.0** provides primary biodiversity data on extant Amphibia, Reptilia, Aves and Mammalia species recorded within the country area of Uruguay. This is the largest and most geographically and taxonomically comprehensive database of Uruguayan tetrapod species available to date, and it represents the first open repository of the country.
 
 You can find the data here
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2650169.svg)](https://doi.org/10.5281/zenodo.2650169)
@@ -31,8 +23,7 @@ Let's start by getting the database. We could read the file like this:
 
     Biodiversidata <- read_delim('Biodiversidata_1.0.0.tsv', delim = '\t')
 
-But we are going to include all the column names and types to avoid
-having any reading errors on our file.
+But we are going to include all the column names and types to avoid having any reading errors on our file.
 
     Biodiversidata <- read_delim('Biodiversidata_1.0.0.tsv', 
                                  col_types = cols(occurrenceID = col_character(),
@@ -86,8 +77,7 @@ Now that we are ready! Let's explore the data.
 
 ## 1) Taxonomic coverage  
 
-The database includes records representing 129 families, 446 genera and
-673 species: 51 amphibians, 68 reptiles, 437 birds, and 117 mammals.
+The database includes records representing 129 families, 446 genera and 673 species: 51 amphibians, 68 reptiles, 437 birds, and 117 mammals.
 
 ### What's the number of records per class?
 
@@ -157,9 +147,7 @@ The taxonomic coverage is uneven!
 
 ## 2) Temporal coverage  
 
-The records included in Biodiversidata cover samples reported in Uruguay
-during the period of 1806–2018. How are these records distributed over
-time within the groups?
+The records included in Biodiversidata cover samples reported in Uruguay during the period of 1806–2018. How are these records distributed over time within the groups?
 
     ggplot(Biodiversidata, aes(x=year, y=order, color=class)) +
       geom_point(show.legend = FALSE) +
@@ -202,9 +190,4 @@ And that's all !
 ------------------------------------------------------------------------
 
 **If you use the data please cite as:**  
-Florencia Grattarola, Germán Botto, Inés da Rosa, Noelia Gobel, Enrique
-M. González, Javier González, Daniel Hernández, Gabriel Laufer, Raúl
-Maneyro, Juan A. Martínez-Lanfranco, Daniel E. Naya, Ana L. Rodales,
-Lucía Ziegler & Daniel Pincheira-Donoso. (2019). 'Biodiversidata: An
-Open-Access Biodiversity Database for Uruguay'. Biodiversity Data
-Journal. Available online: <https://doi.org/10.5281/zenodo.2650169>
+Grattarola F, Botto G, da Rosa I, Gobel N, González E, González J, Hernández D, Laufer G, Maneyro R, Martínez-Lanfranco J, Naya D, Rodales A, Ziegler L, Pincheira-Donoso D (2019) Biodiversidata: An Open-Access Biodiversity Database for Uruguay. Biodiversity Data Journal 7: e36226. https://doi.org/10.3897/BDJ.7.e36226
