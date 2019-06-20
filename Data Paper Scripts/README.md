@@ -21,11 +21,11 @@ We will see the data's:
 
 Let's start by getting the database. We could read the file like this:
 
-    Biodiversidata <- read_delim('Biodiversidata_1.0.0.tsv', delim = '\t')
+    Biodiversidata <- read_csv('Biodiversidata_1.0.0.csv')
 
 But we are going to include all the column names and types to avoid having any reading errors on our file.
 
-    Biodiversidata <- read_delim('Biodiversidata_1.0.0.tsv', 
+    Biodiversidata <- read_csv('Biodiversidata_1.0.0.csv', 
                                  col_types = cols(occurrenceID = col_character(),
                                                   scientificName = col_character(),
                                                   scientificNameAuthorship = col_character(),
@@ -57,7 +57,7 @@ But we are going to include all the column names and types to avoid having any r
                                                   recordNumber = col_character(),
                                                   identifiedBy = col_character(),
                                                   dynamicProperties = col_character(),
-                                                  associatedReferences  = col_character()), delim = '\t')
+                                                  associatedReferences  = col_character()))
 
 ------------------------------------------------------------------------
 
