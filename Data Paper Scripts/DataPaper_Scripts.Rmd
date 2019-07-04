@@ -13,7 +13,9 @@ library(extrafont)
 library(raster)
 ```
 
-This post has all the scripts used to generate the figures of the Data Paper **“Biodiversidata: An Open-Access Biodiversity Database for Uruguay”**, published in the Biodiversity Data Journal. The dataset **Biodiversidata_1.0.0** provides primary biodiversity data on extant Amphibia, Reptilia, Aves and Mammalia species recorded within the country area of Uruguay. This is the largest and most geographically and taxonomically comprehensive database of Uruguayan tetrapod species available to date, and it represents the first open repository of the country.  
+The following scripts were used to generate the figures of the Data Paper **“Biodiversidata: An Open-Access Biodiversity Database for Uruguay”**, published in the Biodiversity Data Journal. 
+
+The dataset **Biodiversidata_1.0.0** provides primary biodiversity data on extant Amphibia, Reptilia, Aves and Mammalia species recorded within the country area of Uruguay. This is the largest and most geographically and taxonomically comprehensive database of Uruguayan tetrapod species available to date, and it represents the first open repository of the country.  
 
 You can find the data here  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2650169.svg)](https://doi.org/10.5281/zenodo.2650169)
 
@@ -93,6 +95,22 @@ Biodiversidata %>% nrow()
 
 ```{r}
 Biodiversidata %>% distinct(scientificName) %>% nrow()
+```
+
+### What's the total amount of records without **date** of collection?
+
+```{r}
+Biodiversidata %>% 
+  group_by(class) %>% 
+  filter(is.na(year)) %>%  count()
+```
+
+### What's the total amount of records **from the last 30 years**?
+
+```{r}
+Biodiversidata %>% 
+  group_by(class) %>% 
+  filter(year>=1988) %>%  count()
 ```
 
 
