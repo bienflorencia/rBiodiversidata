@@ -77,6 +77,37 @@ Now that we are ready! Let's explore the data.
 
     ## [1] 673
 
+### What’s the total amount of records without date of collection?
+
+    Biodiversidata %>% 
+        group_by(class) %>% 
+        filter(is.na(year)) %>%  count()
+
+    ## # A tibble: 4 x 2
+    ## # Groups:   class [4]
+    ##   class        n
+    ##   <chr>    <int>
+    ## 1 Amphibia  1780
+    ## 2 Aves       131
+    ## 3 Mammalia  1687
+    ## 4 Reptilia  1999
+    
+### What's the total amount of records from the last 30 years?
+
+    Biodiversidata %>% 
+      group_by(class) %>% 
+      filter(year>=1988) %>%  count()
+
+    ## # A tibble: 4 x 2
+    ## # Groups:   class [4]
+    ##   class        n
+    ##   <chr>    <int>
+    ## 1 Amphibia   683
+    ## 2 Aves     60308
+    ## 3 Mammalia  1122
+    ## 4 Reptilia   224
+
+
 ## 1) Taxonomic coverage  
 
 The database includes records representing 129 families, 446 genera and 673 species: 51 amphibians, 68 reptiles, 437 birds, and 117 mammals.
