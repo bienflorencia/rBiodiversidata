@@ -1,4 +1,6 @@
-This post has all the scripts used to generate the figures of the Data Paper [**“Biodiversidata: An Open-Access Biodiversity Database for Uruguay”**](https://doi.org/10.3897/BDJ.7.e36226), published in the **Biodiversity Data Journal**. The dataset **Biodiversidata\_1.0.0** provides primary biodiversity data on extant Amphibia, Reptilia, Aves and Mammalia species recorded within the country area of Uruguay. This is the largest and most geographically and taxonomically comprehensive database of Uruguayan tetrapod species available to date, and it represents the first open repository of the country.
+The following scripts were used to generate the figures of the Data Paper [**“Biodiversidata: An Open-Access Biodiversity Database for Uruguay”**](https://doi.org/10.3897/BDJ.7.e36226), published in the **Biodiversity Data Journal**. 
+
+The dataset **Biodiversidata\_1.0.0** provides primary biodiversity data on extant Amphibia, Reptilia, Aves and Mammalia species recorded within the country area of Uruguay. This is the largest and most geographically and taxonomically comprehensive database of Uruguayan tetrapod species available to date, and it represents the first open repository of the country.
 
 You can find the data here
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2650169.svg)](https://doi.org/10.5281/zenodo.2650169)
