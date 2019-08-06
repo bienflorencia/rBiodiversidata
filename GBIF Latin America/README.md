@@ -5,7 +5,7 @@ showed that Uruguay ranks amongst the countries of Latin America with
 the lowest levels of available data on their biodiversity in the Global
 Biodiversity Information Facility [GBIF](https://www.gbif.org/). Also,
 that most of the records that we found in GBIF belong to the
-[eBird](https://ebird.org/home) iniciative, the world’s largest
+[eBird](https://ebird.org/home) initiative, the world’s largest
 biodiversity-related citizen science project. The extensive contribution
 provided by eBird to GBIF highlights the enormous role that data
 provided by citizens play in the development of global biodiversity
@@ -14,7 +14,7 @@ biases encountered in GBIF for the region.
 
 Here is the code to build the data table from scratch using the
 [rgbif](https://ropensci.org/tutorials/rgbif_tutorial/) package to
-retrieve data from GBIF. **Let's start!** To run this code you will need
+retrieve data from GBIF. **Let's start!** To run this code, you will need
 the following R packages:
 
     library(rgbif)
@@ -25,7 +25,7 @@ the following R packages:
 Latin America
 -------------
 
-First we create a list of latin american countries and codes, and a
+First, we create a list of Latin American countries and codes, and a
 variable for the eBird dataset key. Find the ISO CODES of countries
 [here](https://countrycode.org/).
 
@@ -42,7 +42,7 @@ datasets matching the query search
 Function
 --------
 
-Next we declare the function, that takes a list of countries and codes,
+Next, we declare the function, that takes a list of countries and codes,
 and returns for each country the count of the **total number of
 occurrence records** and the number of those that belong to **eBird**.
 
