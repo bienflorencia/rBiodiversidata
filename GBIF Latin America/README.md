@@ -86,7 +86,7 @@ eBird users. The respective proportion will be shown in the green scale.
       theme_bw() +
       theme(text=element_text(family='Calibri', size=12))
 
-![](/figure-markdown_strict/unnamed-chunk-6-1.png)
+![](GBIF Latin America/figure-markdown_strict/unnamed-chunk-6-1.png)
 
 And that's all !
 ----------------
