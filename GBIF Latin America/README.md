@@ -90,15 +90,14 @@ eBird users. The respective proportion will be shown in the green scale.
 
 ![](GBIF_eBird_files/figure-markdown_strict/unnamed-chunk-6-1.png)
 
-Maybe you should zoom in to see the details better :)
+Maybe you should zoom in to see the details :)
 
 
 And that's all !
 ----------------
 
-------------------------------------------------------------------------
 
-**Check our Data Paper for more <info:**
+**Check our Data Paper for more info:**
 
 Grattarola F, Botto G, da Rosa I, Gobel N, González E, González J,
 Hernández D, Laufer G, Maneyro R, Martínez-Lanfranco J, Naya D, Rodales
