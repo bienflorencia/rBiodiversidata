@@ -13,10 +13,10 @@ library(extrafont)
 library(tidyverse)
 ```
 
-In our recent [Data Paper](https://doi.org/10.3897/BDJ.7.e36226), we showed that Uruguay ranks amongst the countries of Latin America with the lowest levels of available data on their biodiversity in the Global Biodiversity Information Facility [GBIF](https://www.gbif.org/). Also, that most of the records that we found in GBIF belong to the [eBird](https://ebird.org/home) iniciative, the world’s largest biodiversity-related citizen science project. The extensive contribution provided by eBird to GBIF highlights the enormous role that data provided by citizens play in the development of global biodiversity datasets, while at the same time, points out the critical taxonomical biases encountered in GBIF for the region.   
+In our recent [Data Paper](https://doi.org/10.3897/BDJ.7.e36226), we showed that Uruguay ranks amongst the countries of Latin America with the lowest levels of available data on their biodiversity in the Global Biodiversity Information Facility [GBIF](https://www.gbif.org/). Also, that most of the records that we found in GBIF belong to the [eBird](https://ebird.org/home) initiative, the world’s largest biodiversity-related citizen science project. The extensive contribution provided by eBird to GBIF highlights the enormous role that data provided by citizens play in the development of global biodiversity datasets, while at the same time, points out the critical taxonomical biases encountered in GBIF for the region.   
 
 
-Here is the code to build the data table from scratch using the [rgbif](https://ropensci.org/tutorials/rgbif_tutorial/) package to retrieve data from GBIF. **Let's start!** To run this code you will need the following R packages:
+Here is the code to build the data table from scratch using the [rgbif](https://ropensci.org/tutorials/rgbif_tutorial/) package to retrieve data from GBIF. **Let's start!** To run this code, you will need the following R packages:
 
 ```{r eval=FALSE} 
 library(rgbif)
@@ -27,7 +27,7 @@ library(tidyverse)
 
 ## Latin America
 
-First we create a list of latin american countries and codes, and a variable for the eBird dataset key. Find the ISO CODES of countries [here](https://countrycode.org/).
+First, we create a list of Latin American countries and codes, and a variable for the eBird dataset key. Find the ISO CODES of countries [here](https://countrycode.org/).
 
 ```{r}
 LatinAmerica <- data.frame(country= c('Mexico', 'Brazil', 'Costa Rica', 'Colombia', 'Peru', 'Argentina', 'Ecuador', 'Panama', 'Chile', 'Venezuela', 'Belize', 'Honduras', 'Bolivia', 'Guatemala', 'Cuba', 'Nicaragua', 'Paraguay', 'Bahamas', 'Jamaica', 'Trinidad and Tobago', 'Guyana', 'Dominican Republic', 'El Salvador', 'Suriname', 'Uruguay', 'Haití'), code=c('MX', 'BR', 'CR', 'CO', 'PE', 'AR', 'EC', 'PA', 'CL', 'VE', 'BZ', 'HN', 'BO', 'GT', 'CU', 'NI', 'PY', 'BS', 'JM', 'TT', 'GY', 'DO', 'SV', 'SR', 'UY', 'HT'))
@@ -47,7 +47,7 @@ datasets(data='all', query='eBird')
 
 ## Function
 
-Next we declare the function, that takes a list of countries and codes, and returns for each country the count of the **total number of occurrence records** and the number of those that belong to **eBird**.
+Next, we declare the function, that takes a list of countries and codes, and returns for each country the count of the **total number of occurrence records** and the number of those that belong to **eBird**.
 
 ```{r}
 count_country_records <- function(List){
@@ -94,7 +94,7 @@ ggplot(LatinAmerica, aes(eBirdRecords, numberOfRecords, label = country)) +
   theme(text=element_text(family='Calibri', size=12))
 ```
 
-
+Maybe you should zoom in to see the details :)
 
 
 ## And that's all !
@@ -102,7 +102,7 @@ ggplot(LatinAmerica, aes(eBirdRecords, numberOfRecords, label = country)) +
 ---
   
 
-**Check our Data Paper for more info:**  
+**Check our Data Paper for more info:**
 
 Grattarola F, Botto G, da Rosa I, Gobel N, González E, González J, Hernández D, Laufer G, Maneyro R, Martínez-Lanfranco J, Naya D, Rodales A, Ziegler L, Pincheira-Donoso D (2019) Biodiversidata: An Open-Access Biodiversity Database for Uruguay. Biodiversity Data Journal 7: e36226. https://doi.org/10.3897/BDJ.7.e36226
 
