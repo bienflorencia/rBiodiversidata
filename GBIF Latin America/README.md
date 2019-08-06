@@ -1,3 +1,5 @@
+# GBIF data in Latin America
+
 In our recent [Data Paper](https://doi.org/10.3897/BDJ.7.e36226), we
 showed that Uruguay ranks amongst the countries of Latin America with
 the lowest levels of available data on their biodiversity in the Global
@@ -87,6 +89,9 @@ eBird users. The respective proportion will be shown in the green scale.
       theme(text=element_text(family='Calibri', size=12))
 
 ![](GBIF_eBird_files/figure-markdown_strict/unnamed-chunk-6-1.png)
+
+Maybe you should zoom in to see the details better :)
+
 
 And that's all !
 ----------------
