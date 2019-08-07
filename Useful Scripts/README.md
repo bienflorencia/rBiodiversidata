@@ -26,7 +26,7 @@ The script contains a function that takes a species list as input and returns a 
 
 > [retrieve_IUCN_data.R](retrieve_IUCN_data.R)
 
-This script uses the rl_search() function from the [rredlist](https://CRAN.R-project.org/package=rredlist) package and works with the IUCN Red List API.
+This script uses the `rl_search()` function from the [**rredlist**](https://CRAN.R-project.org/package=rredlist) package and works with the IUCN Red List API.
 
 - To use the API:
   1. Create a token http://apiv3.iucnredlist.org/api/v3/token
@@ -39,7 +39,7 @@ The script contains a function that takes a species list as input and returns a 
 
 > [check_species_names.R](check_species_names.R)
 
-This script uses the function gnr_resolve() from the R package [taxize](https://github.com/ropensci/taxize).
+This script uses the function `gnr_resolve()` from the R package [**taxize**](https://github.com/ropensci/taxize).
 
 
 ## 3) Retrieving Taxonomic Information for a Species
@@ -48,7 +48,7 @@ The script contains a function that takes a species list as input and returns a 
 
 > [retrieve_taxonomy.R](retrieve_taxonomy.R)
 
-This script uses the function classification() from the R package [taxize](https://github.com/ropensci/taxize).
+This script uses the function `classification()` from the R package [**taxize**](https://github.com/ropensci/taxize).
 
 
 ## 4) Get Scientific Name Authorship for a Species
@@ -57,7 +57,7 @@ The script contains a function that takes a species list as input and returns a 
 
 > [get_scientificNameAuthorship.R](get_scientificNameAuthorship.R)
 
-This script uses the function gnr_resolve() from the R package [taxize](https://github.com/ropensci/taxize).
+This script uses the function `gnr_resolve()` from the R package [**taxize**](https://github.com/ropensci/taxize).
 
 <br>
 
