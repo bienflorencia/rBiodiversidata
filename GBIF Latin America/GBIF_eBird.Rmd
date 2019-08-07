@@ -72,8 +72,11 @@ Now we run the function to create the data
 
 ``` {r}
 LatinAmerica <- count_country_records(LatinAmerica)
-
 ```
+``` {r echo=FALSE}
+LatinAmerica
+```
+
 
 ## Plot
 
