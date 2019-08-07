@@ -67,6 +67,35 @@ Now we run the function to create the data
 
     LatinAmerica <- count_country_records(LatinAmerica)
 
+    ##                country code numberOfRecords eBirdRecords
+    ## 1               Mexico   MX        15043237      6992473
+    ## 2               Brazil   BR         8169257      4023507
+    ## 3           Costa Rica   CR        10890424      5634356
+    ## 4             Colombia   CO         7166734      3776681
+    ## 5                 Peru   PE         3798876      2442519
+    ## 6            Argentina   AR         4148032      2940847
+    ## 7              Ecuador   EC         3867735      2806824
+    ## 8               Panama   PA         2932335      2261739
+    ## 9                Chile   CL         2152025      1676229
+    ## 10           Venezuela   VE         1445854       859298
+    ## 11              Belize   BZ         2491648      2318225
+    ## 12            Honduras   HN         1603648      1375775
+    ## 13             Bolivia   BO          944213       375645
+    ## 14           Guatemala   GT         1579952      1318613
+    ## 15                Cuba   CU          779373       606691
+    ## 16           Nicaragua   NI          807919       432861
+    ## 17            Paraguay   PY          650151       390653
+    ## 18             Bahamas   BS          533186       341283
+    ## 19             Jamaica   JM          333306       241219
+    ## 20 Trinidad and Tobago   TT          566399       500421
+    ## 21              Guyana   GY          404496       161875
+    ## 22  Dominican Republic   DO          322126       179115
+    ## 23         El Salvador   SV          472999       371781
+    ## 24            Suriname   SR          175728        55151
+    ## 25             Uruguay   UY          286433       253805
+    ## 26               Haití   HT          110039        38016
+
+
 Plot
 ----
 
