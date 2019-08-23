@@ -15,6 +15,8 @@ To run this code you will need the following R packages:
     library(spaa)
     library(wesanderson)
     library(extrafont)
+    library(lctools)
+    library(SpatialPack)
     library(tidyverse)
 
 ## 1) Hotspots congruence
