@@ -32,6 +32,8 @@ library(vegan)
 library(spaa)
 library(wesanderson)
 library(extrafont)
+library(lctools)
+library(SpatialPack)
 library(tidyverse)
 
 ```
