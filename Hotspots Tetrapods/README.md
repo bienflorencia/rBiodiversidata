@@ -5,7 +5,7 @@ fabricated?”.
 Analyses
 --------
 
-1.  [Hotspots congruence](#1-hotspot-congruence)  
+1.  [Hotspots congruence](#1-hotspots-congruence)  
 2.  [Identification of ‘areas of ignorance’](#2-areas-of-ignorance)
 3.  [Spatial correlations](#3-spatial-correlations)
 
@@ -19,7 +19,8 @@ To run this code you will need the following R packages:
     library(SpatialPack)
     library(tidyverse)
 
-## 1) Hotspots congruence
+1) Hotspots congruence
+----------------------
 
 To analyse the extent of congruence between the biodiversity hotspots
 (*SR*: species richnes, *ER*:endemic richness and *TP*: threat
@@ -85,6 +86,10 @@ Uruguay, for three different grid-cell sizes: 12.5x12.5km, 25x25km and
     Amphibia_25.GRIDs <- read_csv('Amphibia_UY25.csv')
     Amphibia_50.GRIDs <- read_csv('Amphibia_UY50.csv')
 
+Each table has a GridID and the values for the 4 variables NR, SR, TP
+and ER for each grid. For instance, the table for Amphibia at 50x50km
+scale looks like this:
+
     ## # A tibble: 93 x 5
     ##    GridID    NR    SR      TP    ER
     ##     <dbl> <dbl> <dbl>   <dbl> <dbl>
@@ -100,7 +105,7 @@ Uruguay, for three different grid-cell sizes: 12.5x12.5km, 25x25km and
     ## 10     10   131    22 0.0305  5.27 
     ## # ... with 83 more rows
 
-Now we run the function for each grid-cell size dataset
+Now we run the function `get_sharedArea` for each grid-cell size dataset
 
     Amphibia_50_sharedArea <- get_sharedArea(Amphibia_50.GRIDs)
     Amphibia_25_sharedArea <- get_sharedArea(Amphibia_25.GRIDs)
@@ -139,7 +144,8 @@ And to finish, we plot
 
 <br>
 
-## 2) Areas of ignorance
+2) Areas of ignorance
+---------------------
 
 To identify the areas of ignorance we quantified the levels of inventory
 incompleteness for each group by using curvilinearity of smoothed
@@ -152,7 +158,7 @@ slope of the last 10% of SACs.
 ### Function
 
 The function `get_gridsSlopes` finds a species accumulation curve (SAC)
-for each grid-cell using the method ‘exact’ of the function ‘specaccum’
+for each grid-cell using the method ‘exact’ of the function `specaccum`
 of the vegan package and then calculates the degree of curvilinearity as
 the mean slope of the last 10% of the curve. We considered grids with
 slope values &gt; 0.05 as under-sampled and those with slope values ≤
@@ -184,10 +190,15 @@ slope values &gt; 0.05 as under-sampled and those with slope values ≤
 
 Let's calculate the SACs using the data of birds of Uruguay, for the
 grid-cell size of 25x25km. To run the function we need to have a list of
-grid-cells, sample number and species.
+grid-cells, sample numbers and species. This is, a list of species
+recorded for each grid-cell. I have created a function in Python to
+extract this list of samples/species per grid cell, check it here:
+![abundances.py](abundances.py)()
 
     Reptilia_25.SACs <- read_tsv('Reptilia_UY25_abundance.txt', col_names = FALSE) %>% 
       rename(cell_id=X1, sample=X2, species=X3)
+
+The data looks like this:
 
     ## # A tibble: 2,381 x 3
     ##    cell_id sample species                
@@ -204,7 +215,8 @@ grid-cells, sample number and species.
     ## 10       1     10 Lygophis anomalus      
     ## # ... with 2,371 more rows
 
-Now we run the function for the dataset
+Now we run the function `get_gridsSlopes` for the data at 25x25
+resolution scale
 
     Reptilia_25.incompleteness <- get_gridsSlopes(Reptilia_25.SACs)
 
@@ -220,6 +232,28 @@ curve
 To plot the SAC of the well sampled grid-cell we extract the data for
 that grid-cell and run the SAC for the subset.
 
+    Reptilia_25.wellsampled <- Reptilia_25.SACs %>% 
+      filter(cell_id==2) %>% 
+      mutate(abundance=as.integer(1), observation = 1:n()) %>% 
+      select(observation, species, abundance)
+
+    Reptilia_25.specaccum <- data2mat(as.data.frame(Reptilia_25.wellsampled)) 
+    Reptilia_25.specaccum <- specaccum(Reptilia_25.specaccum, method = "exact")
+
+    Reptilia_25.specaccum_plot <- tibble(sites=Reptilia_25.specaccum$sites, 
+                                       richness=Reptilia_25.specaccum$richness,
+                                       sd=Reptilia_25.specaccum$sd)
+
+    ggplot(Reptilia_25.specaccum_plot, aes(x=sites, y=richness)) +
+      geom_ribbon(aes(ymin=richness-sd, ymax=richness+sd), alpha =0.15) +
+      geom_line(linetype=1, size=1) +
+      geom_vline(aes(xintercept=max(sites)), linetype=2, color = "black",  alpha = .5) +
+      geom_vline(aes(xintercept=0.9*max(sites)), linetype=2, color = "black",  alpha = .5) +
+      theme_bw() +
+      theme(axis.text=element_text(color='black', size=11, face='bold'),
+            text=element_text(family='Calibri')) +
+      labs(x='', y= '')
+
 ![](Hotspots_Tetrapods_files/figure-markdown_strict/unnamed-chunk-11-1.png)
 
 > Plot of the species accumulation curve (SAC) of the well sampled
@@ -232,19 +266,20 @@ that grid-cell and run the SAC for the subset.
 
 <br>
 
-## 3) Spatial correlations
+3) Spatial correlations
+-----------------------
 
-To measure the spatial association between the number of records **NR**
-and the species-richness patterns **SR** per grid-cell, we need to test
+To measure the association between the number of records (**NR**) and
+the species-richness patterns (**SR**) per grid-cell, we need to test
 each variable for spatial autocorrelation using Moran’s I and then, if
 the are autocorrelated, conduct spatially corrected correlations.
 
 ### Working example
 
 First we need the spatial data (coordinates) of the grid-cells. Next
-step is to filter cells without records. Finally, we test
-autocorrelation for number of records **NR** and species-richness
-**SR**.
+step is to filter cells without records (to remove double zeros).
+Finally, we test autocorrelation for each of the variables, number of
+records and species-richness.
 
     Amphibia_25.nonzero <- Amphibia_25.GRIDs %>% 
       bind_cols(., read_csv('Grid_UY_25_XY.csv')) %>%  
@@ -265,9 +300,8 @@ spatial autocorrelation
     ## 2 SR          0.257   -0.00508  6.73 1.66e-11
 
 Given we found positive autocorrelation for our data, the correlations
-were conducted using a corrected Pearson’s correlation for spatial
-autocorrelation, correcting the degrees of freedom of the analyses given
-the positive autocorrelation structure of the data
+need to be conducted using a corrected Pearson’s correlation for spatial
+autocorrelation, correcting the degrees of freedom of the analyses
 
     modified.ttest(Amphibia_25.nonzero$NR, Amphibia_25.nonzero$SR, XY, nclass = 10)
 
@@ -286,7 +320,7 @@ Now let's plot both variables
       theme_bw() +
       theme(text=element_text(family='Calibri', size=12)) +
       labs(x='Number of Records', y= 'Species Richness') +
-      geom_text(x=5, y=90, label="r=0.828", family='Calibri',  size=12)
+      geom_text(x=90, y=5, label="r=0.828", family='Calibri',  size=10)
 
 ![](Hotspots_Tetrapods_files/figure-markdown_strict/unnamed-chunk-15-1.png)
 
