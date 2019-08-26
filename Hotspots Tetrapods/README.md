@@ -192,7 +192,7 @@ grid-cell size of 25x25km. To run the function we need to have a list of
 grid-cells, sample numbers and species. This is, a list of species
 recorded for each grid-cell. I have created a function in Python to
 extract this list of samples/species per grid cell, check it here:
-![abundances.py](abundances.py)()
+![abundances.py](abundances.py)
 
     Reptilia_25.SACs <- read_tsv('Reptilia_UY25_abundance.txt', col_names = FALSE) %>% 
       rename(cell_id=X1, sample=X2, species=X3)
