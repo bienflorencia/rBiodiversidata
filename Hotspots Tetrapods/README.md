@@ -19,8 +19,7 @@ To run this code you will need the following R packages:
     library(SpatialPack)
     library(tidyverse)
 
-1) Hotspots congruence
-----------------------
+## 1) Hotspots congruence
 
 To analyse the extent of congruence between the biodiversity hotspots
 (*SR*: species richnes, *ER*:endemic richness and *TP*: threat
@@ -144,8 +143,7 @@ And to finish, we plot
 
 <br>
 
-2) Areas of ignorance
----------------------
+## 2) Areas of ignorance
 
 To identify the areas of ignorance we quantified the levels of inventory
 incompleteness for each group by using curvilinearity of smoothed
@@ -266,8 +264,7 @@ that grid-cell and run the SAC for the subset.
 
 <br>
 
-3) Spatial correlations
------------------------
+## 3) Spatial correlations
 
 To measure the association between the number of records (**NR**) and
 the species-richness patterns (**SR**) per grid-cell, we need to test
