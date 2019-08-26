@@ -1,6 +1,7 @@
-The following scripts were used for the paper “Large-scale patterns of
-vertebrate biodiversity of Uruguay: are biodiversity hotspots real or
-fabricated?”.
+The following scripts are being used for a paper in prep  with the 
+running title: “Large-scale patterns of vertebrate biodiversity of 
+Uruguay: are biodiversity hotspots real or fabricated?”.
+
 
 Analyses
 --------
