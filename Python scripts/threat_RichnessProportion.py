@@ -5,9 +5,8 @@ Created on Wed Sep 18 11:17:56 2019
 @author: Florencia
 """
 
-import csv
 
-# FUNCTIONS  
+import csv
 
 def create_IUCN_global_status_dic(file):
     with open(file, encoding='utf-8') as csvfile:
@@ -56,16 +55,19 @@ def calculate_threatRichness(file, dic1, dic2):
                             IUCN_global = dic1[sp]
                             IUCN_national = dic2[sp]
                            # print(activity)
-                            if (IUCN_global == 'CR' | IUCN_global == 'EN'| IUCN_global == 'VU'| IUCN_global == 'DD'):
+                            if (IUCN_global == 'CR' or IUCN_global == 'EN' or IUCN_global == 'VU' or IUCN_global == 'DD'):
                                 Threat_global+=1
-                            if (IUCN_national == 'CR' | IUCN_national == 'EN'| IUCN_national == 'VU'| IUCN_national == 'DD'):
+                            if (IUCN_national == 'CR' or IUCN_national == 'EN' or IUCN_national == 'VU' or IUCN_national == 'DD'):
                                 Threat_national+=1
-            dic_all[gridID] = [Richness, Threat_global, Threat_national, (Threat_global/Richness), (Threat_national/Richness)]
+            if Richness == 0:
+                Threat_global_proportion = 0
+                Threat_national_proportion = 0
+            else:
+                Threat_global_proportion = Threat_global/Richness
+                Threat_national_proportion = Threat_national/Richness
+            dic_all[gridID] = [Richness, Threat_global_proportion, Threat_national_proportion, Threat_global, Threat_national]
         return(dic_all)
 
-#################################################################
-# CREATE DICTIONARIES
-# Global and National IUCN Status categories for earch species
 
 file_IUCN = 'species_Biodiversidata_1.0.0_IUCN_categories.csv'
 dic_IUCN_global_status = create_IUCN_global_status_dic(file_IUCN)
@@ -74,7 +76,7 @@ dic_IUCN_national_status = create_IUCN_national_status_dic(file_IUCN)
 ################
 # RUN 
 
-file_tmp = 'Aves_UY50.csv' # change accordingly
+file_tmp = 'Reptilia_UY125.csv' # change accordingly
 dic_tmp = calculate_threatRichness(file_tmp, dic_IUCN_global_status, dic_IUCN_national_status)
 new_file_tmp = file_tmp.split('.')[0]+'_ThreatRichnessProportion.csv'
 
@@ -85,6 +87,5 @@ with open(new_file_tmp, 'w', newline='', encoding="utf8") as ofile:
                      'ThreatRichnessNational'])
     for gridID, value in dic_tmp.items():
         writer.writerow([gridID, value[0], value[1], value[2], value[3], value[4]])
-
 
 
