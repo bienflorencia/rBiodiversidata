@@ -7,6 +7,8 @@ Created on Wed Sep 18 11:17:56 2019
 
 import csv
 
+# FUNCTIONS  
+
 def create_IUCN_global_status_dic(file):
     with open(file, encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile)
@@ -61,18 +63,28 @@ def calculate_threatRichness(file, dic1, dic2):
             dic_all[gridID] = [Richness, Threat_global, Threat_national, (Threat_global/Richness), (Threat_national/Richness)]
         return(dic_all)
 
+#################################################################
+# CREATE DICTIONARIES
+# Global and National IUCN Status categories for earch species
 
 file_IUCN = 'species_Biodiversidata_1.0.0_IUCN_categories.csv'
-
 dic_IUCN_global_status = create_IUCN_global_status_dic(file_IUCN)
 dic_IUCN_national_status = create_IUCN_national_status_dic(file_IUCN)
 
+################
+# RUN 
 
-file_tmp = '\Group Grids csvs\Amphibia_UY25.csv'
+file_tmp = 'Aves_UY50.csv' # change accordingly
+dic_tmp = calculate_threatRichness(file_tmp, dic_IUCN_global_status, dic_IUCN_national_status)
+new_file_tmp = file_tmp.split('.')[0]+'_ThreatRichnessProportion.csv'
 
-calculate_threatRichness(file_tmp, dic_IUCN_global_status, dic_IUCN_national_status)
-
-
+with open(new_file_tmp, 'w', newline='', encoding="utf8") as ofile:
+    writer = csv.writer(ofile, delimiter=',')
+    writer.writerow(['gridID', 'speciesRichness', 'ThreatProportionGlobal', 
+                     'ThreatProportionNational', 'ThreatRichnessGlobal', 
+                     'ThreatRichnessNational'])
+    for gridID, value in dic_tmp.items():
+        writer.writerow([gridID, value[0], value[1], value[2], value[3], value[4]])
 
 
 
