@@ -44,6 +44,7 @@ $matching-grid-cells \* 100 \\over total-number-of-unique-cells$
                                congruencePercentage= double(),
                                stringsAsFactors=FALSE)
       
+      dataset <- dataset %>% filter(NR!=0)
       hotspotAreaDefinition <- (nrow(dataset)*seq(1,100,0.5))/100
       
       for(i in hotspotAreaDefinition) {
