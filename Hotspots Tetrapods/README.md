@@ -19,8 +19,7 @@ To run this code you will need the following R packages:
     library(SpatialPack)
     library(tidyverse)
 
-1) Hotspots congruence
-----------------------
+# 1) Hotspots congruence
 
 We analysed the congruence between hotspots of:
 
@@ -128,8 +127,7 @@ And to finish, we plot
 
 <br>
 
-2) Areas of ignorance
----------------------
+# 2) Areas of ignorance
 
 To identify the areas of ignorance we quantified the levels of inventory incompleteness for each group by using curvilinearity of smoothed species accumulation curves (SACs). This method assumes that SACs of poorly sampled grids tend towards a straight line, while those of better sampled ones have a higher degree of curvature. As a proxy for inventory incompleteness we calculated the degree of curvilinearity as the mean slope of the last 10% of SACs.
 
@@ -234,8 +232,7 @@ To plot the SAC of the well sampled grid-cell we extract the data for that grid-
 
 <br>
 
-3) Spatial correlations
------------------------
+# 3) Spatial correlations
 
 To measure the association between the number of records (**NR**) and the species-richness patterns (**SR**) per grid-cell, we need to test each variable for spatial autocorrelation using Moran’s I and then, if the are autocorrelated, conduct spatially corrected correlations.
 
