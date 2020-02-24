@@ -2,13 +2,13 @@
 
 The following scripts were used for the analyses of the paper with the running title **“Multiple measures of vertebrate biodiversity hotspots: lesson from Uruguay”**. We will use the data for amphibians as an example.
 
-![](Hotspots_Tetrapods_files/figure-markdown_strict/unnamed-chunk-1-1.png)
-
 ## Analyses
 
 1.  [Hotspots congruence](#1-hotspots-congruence)  
 2.  [Identification of ‘areas of ignorance’](#2-areas-of-ignorance)
 3.  [Spatial correlations](#3-spatial-correlations)
+
+![](Hotspots_Tetrapods_files/figure-markdown_strict/unnamed-chunk-1-1.png)
 
 To run this code you will need the following R packages:
 
