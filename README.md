@@ -1,5 +1,7 @@
 # rBiodiversidata
 
+![logo](https://github.com/bienflorencia/cdbu/blob/master/static/img/icon-192.png)
+
 ### Welcome to Biodiversidata's R repository
 
 The **Uruguayan Consortium of Biodiversity Data** is a collaborative association of experts with the aim of improving Uruguay’s biodiversity knowledge.
