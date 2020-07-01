@@ -14,9 +14,8 @@ You can find here scripts about:
   - [Data Analysis about GBIF records of Latin America](/GBIF%20Latin%20America)
   - [Directory of useful files](/Useful%20files)
 
-
+<br>
 ![logo](https://github.com/bienflorencia/cdbu/blob/master/static/img/icon-192.png)
-
 <br>
 
 ## Check our website [biodiversidata.org](https://biodiversidata.org/) and follow us on twitter [@biodiversidata](https://twitter.com/biodiversidata)  
