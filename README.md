@@ -1,6 +1,6 @@
 # rBiodiversidata
 
-![logo](https://github.com/bienflorencia/cdbu/blob/master/static/img/icon-192.png)
+
 
 ### Welcome to Biodiversidata's R repository
 
@@ -20,3 +20,5 @@ You can find here scripts about:
 ## Check our website [biodiversidata.org](https://biodiversidata.org/) and follow us on twitter [@biodiversidata](https://twitter.com/biodiversidata)  
 
 #### For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)  
+
+![logo](https://github.com/bienflorencia/cdbu/blob/master/static/img/icon-192.png)
