@@ -15,10 +15,10 @@ You can find here scripts about:
   - [Directory of useful files](/Useful%20files)
 
 
+![logo](https://github.com/bienflorencia/cdbu/blob/master/static/img/icon-192.png)
+
 <br>
 
 ## Check our website [biodiversidata.org](https://biodiversidata.org/) and follow us on twitter [@biodiversidata](https://twitter.com/biodiversidata)  
 
 #### For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)  
-
-![logo](https://github.com/bienflorencia/cdbu/blob/master/static/img/icon-192.png)
