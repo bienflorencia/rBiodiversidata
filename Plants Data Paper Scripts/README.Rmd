@@ -1,0 +1,355 @@
+---
+title: "README.md"
+author: "Florencia Grattarola"
+date: "2 July 2020"
+output: md_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+
+library(extrafont)
+library(lubridate)
+library(gridExtra)
+library(ggpubr)
+library(sf)
+library(tidyverse)
+
+```
+
+The following scripts were used to generate the analyses and figures of the Data Paper “Biodiversidata: A novel dataset for the vascular plant species diversity in Uruguay”, published in the Biodiversity Data Journal.
+
+The dataset **Biodiversidata_Plants_1.0.0** provides primary biodiversity data on extant vascular plant (native and introduced) species recorded within the country area of Uruguay. This is [Biodiversidata](http://biodiversidata.org)'s second open-access set of data on the biodiversity of the country.
+
+You can find the data here DOI 
+
+---
+
+We will see the data's:  
+
+1. [Taxonomic coverage](#taxonomic-coverage)  
+2. [Temporal coverage](#temporal-coverage)  
+3. [Geographic coverage](#geographic-coverage) 
+
+To run this code you will need the following R packages:
+
+    library(extrafont)
+    library(lubridate)
+    library(gridExtra)
+    library(ggpubr)
+    library(sf)
+    library(tidyverse)
+
+------
+
+## First, let's explore the data!
+
+Let's start by reading the data from the database. Once you have downloaded the dataset, the data will look like this (a tibble with **12,470** rows and **61** columns):
+
+```{r echo=FALSE}
+load('../datosDataPaper/Biodiversidata_Plants.RData')
+Biodiversidata_Plants <- Biodiversidata_Plants %>% 
+  unite('species', genus, specificEpithet, na.rm = TRUE, sep = ' ', remove = FALSE)
+```
+
+```{r}
+Biodiversidata_Plants
+```
+
+
+### What's the total amount of records and species in the database?
+
+To get sumarised data out of our database, such as the total number of species or the total number of records with date of collection, we use the function `summarise` together with `n_distinct`. We can `group_by` any column we want, for example, by the taxonomic **class** of each record or by any specific **group**. To get the **Total** values, we  can also summarise without grouping the data.
+
+```{r eval=FALSE}
+Biodiversidata_Plants %>%
+  mutate(group=ifelse(class=='Magnoliopsida'|class=='Liliopsida', 'Angiosperms',
+                            ifelse(class=='Gnetopsida'|class=='Pinopsida', 'Gymnosperms',
+                                   ifelse(class=='Polypodiopsida', 'Ferns', 
+                                          'Lycophytes')))) %>% 
+  group_by(group) %>% # use this or comment depending on the output you want
+  summarise(N= n(), # total number of records
+            S= n_distinct(species), # number of species
+            wDate= sum(!(is.na(year))), # records that have a year of collection
+            last30y = sum(year>1990, na.rm = T), # records that were collected in the last 30 years
+            wCoordinates= sum(!(is.na(decimalLatitude))))  # records that have a decimal latitude 
+```
+
+Here's a table that summarises all the data, binding the information extracted for the groupped data and for the total data. To produce the table we are using `knitr::kable`.
+
+```{r tableresume, echo=FALSE, warning=FALSE}
+knitr::kable(bind_rows(Biodiversidata_Plants %>%
+             mutate(Group=ifelse(class=='Magnoliopsida'|class=='Liliopsida', 
+                                 'Angiosperms',
+                                 ifelse(class=='Gnetopsida'|class=='Pinopsida', 
+                                        'Gymnosperms',
+                                        ifelse(class=='Polypodiopsida', 'Ferns', 
+                                               'Lycophytes')))) %>%
+             mutate(Group=factor(Group, levels=c('Lycophytes',
+                                                 'Ferns', 
+                                                 'Gymnosperms',
+                                                 'Angiosperms'))) %>%
+             group_by(Group) %>%
+             summarise(N= n(),
+                       S= n_distinct(species),
+                       wDate= sum(!(is.na(year))),
+                       wDateP= sum(!(is.na(year)))*100/N,
+                       last30y = sum(year>1990, na.rm = T),
+                       last30yP = sum(year>1990, na.rm = T)*100/N,
+                       wCoordinates= sum(!(is.na(decimalLatitude))),
+                       wCoordinatesP= sum(!(is.na(decimalLatitude)))*100/N) %>%
+             mutate(last30y = str_c(last30y, ' (', round(last30yP, 1), ')')) %>%
+             mutate(wDate = str_c(wDate, ' (', round(wDateP, 1), ')')) %>%
+             mutate(wCoordinates = str_c(wCoordinates, ' (', round(wCoordinatesP, 1), ')')),
+           Biodiversidata_Plants %>%
+            summarise(N= n(),
+                      S= n_distinct(species),
+                      wDate= sum(!(is.na(year))),
+                      wDateP= sum(!(is.na(year)))*100/N,
+                      last30y = sum(year>1990, na.rm = T),
+                      last30yP = sum(year>1990, na.rm = T)*100/N,
+                      wCoordinates= sum(!(is.na(decimalLatitude))),
+                      wCoordinatesP= sum(!(is.na(decimalLatitude)))*100/N) %>%
+             mutate(Group='Total') %>%
+             mutate(last30y = str_c(last30y, ' (', round(last30yP, 1), ')')) %>%
+             mutate(wDate = str_c(wDate, ' (', round(wDateP, 1), ')')) %>%
+             mutate(wCoordinates = str_c(wCoordinates, ' (', round(wCoordinatesP, 1), ')'))) %>%
+    select(Group, N, S, wDate, last30y, wCoordinates) %>%
+    rename('Number of Occurrence Records'=N,
+           'Number of Species'=S, 'Records with Date (%)'=wDate,
+           'Records from the last 30 years (%)'=last30y, 
+           'Records with Coordinates (%)'=wCoordinates), align = 'r') 
+```
+
+### General overview 
+
+To get other useful information to fill the metadata section, we will also summarise fields such as: 
+
+```{r }
+knitr::kable(Biodiversidata_Plants %>% 
+  unite('species', genus, specificEpithet, na.rm = TRUE, sep = ' ', remove = FALSE) %>% 
+  mutate(places=str_c(decimalLatitude, decimalLongitude)) %>% # unique point locations
+  summarise(recordsT= n(),
+            speciesN= n_distinct(species),
+            familyN= n_distinct(family),
+            genusN= n_distinct(genus),
+            placesN= n_distinct(places),
+            StartDate=min(eventDate, na.rm = T),
+            EndDate=max(eventDate, na.rm = T),
+            North=max(decimalLatitude),
+            South=min(decimalLatitude),
+            East=max(decimalLongitude),
+            West=min(decimalLongitude),
+            departamentos=n_distinct(stateProvince)) %>% 
+  rename('Occurrence Records'=recordsT, 'Number of Species'=speciesN, 
+         'Families'=familyN, 'Genera'=genusN,
+         'Localities (lat/lon)'=placesN, 'Start Date'=StartDate,
+         'End Date'=EndDate, 'States (Departamentos)'=departamentos),  align = 'r')
+
+```
+
+  
+
+## 1) Taxonomic coverage
+
+The database includes 12,470 records from 160 families and 760 genera, representing 1,648 species: with 6 species of the Lycopodiopsida class (**Lycophytes**), 48 of Gnetopsida and Pinopsida classes  (**Gymnosperms**), 78 of the Polypodiopsida class (**Ferns**), and 1,145 of the Magnoliopsida and Liliopsida classes  (**Angiosperms**). Also, the database includes 1,379 native species and 270 introduced, you can see that in the column **establishmentMeans**.  
+
+ 
+### What's the number of records/species/families per group?
+
+```{r echo=FALSE}
+knitr::kable(Biodiversidata_Plants %>% 
+  mutate(classLevels=ifelse(class=='Magnoliopsida'|class=='Liliopsida', 'Angiosperms',
+                            ifelse(class=='Gnetopsida'|class=='Pinopsida', 'Gymnosperms',
+                                   ifelse(class=='Polypodiopsida', 'Ferns', 
+                                          'Lycophytes')))) %>%
+    mutate(classLevels=factor(classLevels, levels=c('Lycophytes',
+                                                  'Ferns', 
+                                                  'Gymnosperms',
+                                                  'Angiosperms'))) %>% 
+  group_by(classLevels) %>% 
+  summarise(Records= n(),
+            Species= n_distinct(species),
+            Families=n_distinct(family)) %>% 
+  rename(Group= classLevels), digits = 1, align = 'r')
+```
+
+To simplify the plots we are going to keep only the families of Angiosperms and Ferns with more than 50 a 20 records respectively. We will use this variable `familiesToPlot` to filter families in the following plots:
+
+```{r}
+
+familiesToPlot <- Biodiversidata_Plants %>% 
+  group_by(class, family) %>% count() %>% 
+  mutate(classLevels=ifelse(class=='Magnoliopsida'|class=='Liliopsida', 'Angiosperms',
+                            ifelse(class=='Gnetopsida'|class=='Pinopsida', 'Gymnosperms',
+                                   ifelse(class=='Polypodiopsida', 'Ferns', 
+                                          'Lycophytes')))) %>% 
+  filter(classLevels!='Angiosperms' | classLevels=='Angiosperms'& n>=50) %>% 
+  filter(classLevels!='Ferns' | classLevels=='Ferns'& n>=20) %>% pull(family)
+
+```
+
+Now we plot the number of records by family, faceting the plots by group. 
+
+```{r  fig.height=6,  out.width = '100%', fig.align = "center", , dpi=150}
+
+grid.arrange(Biodiversidata_Plants %>% 
+  group_by(class, family) %>% count() %>% 
+  mutate(classLevels=ifelse(class=='Magnoliopsida'|class=='Liliopsida', 'Angiosperms',
+                            ifelse(class=='Gnetopsida'|class=='Pinopsida', 'Gymnosperms',
+                                   ifelse(class=='Polypodiopsida', 'Ferns', 
+                                          'Lycophytes')))) %>% 
+  filter(classLevels!='Angiosperms' & family %in% familiesToPlot) %>% 
+  mutate(classLevels=factor(classLevels, levels=c('Lycophytes',
+                                                  'Ferns', 
+                                                  'Gymnosperms',
+                                                  'Angiosperms'))) %>% 
+  ggbarplot(x = "family", y = "n",
+            fill = "classLevels",             
+            color = "white",      
+            drop= T,
+            palette = c("#D7191C", "#FDAE61", "#ABDDA4"),   
+            sort.val = "desc",         
+            x.text.angle = 90,          
+            legend = "none",
+            ylab = 'Number of Records', xlab = '') + 
+  scale_y_continuous(breaks=scales::breaks_extended(8))+
+  theme(text=element_text(family='Calibri', size = 10)) +
+  facet_wrap(~classLevels, nrow=2, ncol=3, scales = "free", drop=TRUE),
+  Biodiversidata_Plants %>% 
+    group_by(class, family) %>% count() %>% 
+    mutate(classLevels=ifelse(class=='Magnoliopsida'|class=='Liliopsida', 'Angiosperms',
+                              ifelse(class=='Gnetopsida'|class=='Pinopsida', 'Gymnosperms',
+                                     ifelse(class=='Polypodiopsida', 'Ferns', 
+                                            'Lycophytes')))) %>% 
+    filter(classLevels=='Angiosperms' & family %in% familiesToPlot) %>% 
+    mutate(classLevels=factor(classLevels, levels=c('Lycophytes',
+                                                    'Ferns', 
+                                                    'Gymnosperms',
+                                                    'Angiosperms'))) %>% 
+    ggbarplot(x = "family", y = "n",
+              fill = "classLevels",             
+              color = "white",      
+              drop= T,
+              palette = "#2B83BA",   
+              sort.val = "desc",         
+              x.text.angle = 90,          
+              legend = "none",
+              ylab = 'Number of Records', xlab = 'Family') + 
+    scale_y_continuous(breaks=scales::breaks_extended(8))+
+    theme(text=element_text(family='Calibri', size = 10)) +
+    facet_wrap(~classLevels, nrow=2, ncol=3, scales = "free", drop=TRUE)) 
+
+```
+
+
+## 2) Temporal coverage
+
+The occurrence records included in Biodiversidata's plants database cover samples reported in Uruguay during the period of **1877–2020**. How are these records distributed over time within the groups?
+
+```{r warning=FALSE, fig.height=8, dpi=150}
+Biodiversidata_Plants %>% 
+  mutate(classLevels=ifelse(class=='Magnoliopsida'|class=='Liliopsida', 'Angiosperms',
+                            ifelse(class=='Gnetopsida'|class=='Pinopsida', 'Gymnosperms',
+                                   ifelse(class=='Polypodiopsida', 'Ferns', 
+                                          'Lycophytes')))) %>% 
+  mutate(classLevels=factor(classLevels, levels=c('Lycophytes',
+                                                  'Ferns', 
+                                                  'Gymnosperms',
+                                                  'Angiosperms'))) %>% 
+  filter(family %in% familiesToPlot) %>% 
+  ggplot(aes(x=year, y=family, color=classLevels)) +
+  geom_point(show.legend = FALSE) +
+  scale_colour_brewer(palette ='Spectral')+
+  facet_grid(classLevels~., scales = "free", space= 'free_y', switch='x' ,drop=TRUE) +
+  theme_bw() +
+  theme(text=element_text(family='Calibri', size=10)) +
+  theme(strip.text.y = element_text(size=10, angle=0)) +
+  labs(x='Year', y='Family', color = '') 
+```
+
+
+## 3) Geographic coverage
+
+To finish let's map the records. 
+
+First, we need to download Uruguay's shapefile data with the level 1 for administrative boundaries. We can use the package `geouy` to download this data or [GADM](https://gadm.org/).
+
+
+``` 
+Departamentos <- load_geouy('Departamentos') # We will use this one
+Uruguay <- getData("GADM", country="UY", level=1)
+
+```
+
+``` {r echo=FALSE}
+load('Departamentos.Rdata')
+```
+
+Also, we will need a grid of 25x25km unit-size to plot sampling effort (you can create one using the `st_make_grid` function).
+
+``` {r results='hide'}
+Grid_UY25 <- st_read('Grid_UY25.shp') 
+```
+
+
+Finally, we are going to convert the plants data into an `sf` object.
+
+```{r }
+Biodiversidata_Plants_GIS <- Biodiversidata_Plants %>% 
+  as.data.frame %>% 
+  sf::st_as_sf(coords = c("decimalLongitude", "decimalLatitude")) %>% 
+  st_set_crs(4326) %>% st_transform(32721) # this CRS and transformation is specifically for Uruguay 
+
+```
+
+
+#### Sampling effort analysis
+
+To measure sampling effort we perform a spatial filter using `st_join`, with the gridded map as a base to count the occurence records that are *contained* within each grid-cell.
+
+```{r}
+Grid_UY25_Plants <- st_join(x=Grid_UY25, 
+                                  y=(Biodiversidata_Plants_GIS %>% 
+                                       select(species)), # to simplify we just keep the species field
+                                  left=TRUE, join = st_contains) %>% 
+  group_by(Id) %>% 
+  summarise(samplingEffort=ifelse(n_distinct(species, na.rm = TRUE)==0, 0, n())) # records per grid
+
+```
+
+Now we map the occurrence records and the distribution of the sampling effort.
+
+```{r out.width = '100%', fig.align = "center", , dpi=150}
+
+occurrenceRecords <- ggplot() +
+  geom_sf(data = Departamentos, color='black', fill='white') +
+  geom_sf(data = Biodiversidata_Plants_GIS, size=1, alpha=0.5) +
+  theme_bw() +
+  theme(text=element_text(size=10))
+
+samplingEffort <- ggplot() + 
+  geom_sf(data = Grid_UY25_Plants, aes(fill=samplingEffort)) +
+  scale_fill_binned(n.breaks=5, type = "viridis", show.limits = TRUE) +
+  geom_sf(data = Grid_UY25_Plants %>% filter(samplingEffort==0), aes(fill=N), fill='white', alpha=0.8)+
+  geom_sf(data = Departamentos, color='black', fill=NA) +
+  labs(fill = 'Sampling Effort') +
+  theme_bw() +
+  theme(text=element_text(size=10))
+
+gridExtra::grid.arrange(occurrenceRecords, samplingEffort, nrow=1)
+
+```
+
+
+- For the Data Paper we used [Inkscape](https://inkscape.org/es/) and **ArcGis 10.6** to improve this maps.
+
+## And that's all !
+
+---
+  
+
+**If you use the data please cite as:**
+Florencia Grattarola, Andrés González, Patricia Mai, Laura Cappuccio, César Fagúndez-Pachón, Florencia Rossi, Franco Teixeira de Mello, Lucía Urtado & Daniel Pincheira-Donoso. (2020). 'Biodiversidata: A novel dataset for the vascular plant species diversity in Uruguay'. Biodiversity Data Journal. Available online: https://doi.org/xxx 
+  
