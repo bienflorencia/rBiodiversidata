@@ -217,8 +217,7 @@ also summarise fields such as:
 </tbody>
 </table>
 
-1) Taxonomic coverage
----------------------
+## 1) Taxonomic coverage  
 
 The database includes 12,470 records from 160 families and 760 genera,
 representing 1,648 species: with 6 species of the Lycopodiopsida class
@@ -333,8 +332,8 @@ group.
 
 <img src="README_files/figure-markdown_strict/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" />
 
-2) Temporal coverage
---------------------
+
+## 2) Temporal coverage
 
 The occurrence records included in Biodiversidata's plants database
 cover samples reported in Uruguay during the period of **1877–2020**.
@@ -361,8 +360,8 @@ How are these records distributed over time within the groups?
 
 ![](README_files/figure-markdown_strict/unnamed-chunk-8-1.png)
 
-3) Geographic coverage
-----------------------
+
+## 3) Geographic coverage
 
 To finish let's map the records.
 
