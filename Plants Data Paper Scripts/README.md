@@ -1,6 +1,6 @@
 The following scripts were used to generate the analyses and figures of
 the Data Paper “Biodiversidata: A novel dataset for the vascular plant
-species diversity in Uruguay”, published in the Biodiversity Data
+species diversity in Uruguay”, subitted to the Biodiversity Data
 Journal.
 
 The dataset **Biodiversidata\_Plants\_1.0.0** provides primary
@@ -9,7 +9,9 @@ species recorded within the country area of Uruguay. This is
 [Biodiversidata](http://biodiversidata.org)'s second open-access set of
 data on the biodiversity of the country.
 
-You can find the data here DOI
+You can find the data here [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3954406.svg)](https://doi.org/10.5281/zenodo.3954406)
+
+
 
 ------------------------------------------------------------------------
 
@@ -419,7 +421,7 @@ effort.
 <img src="README_files/figure-markdown_strict/unnamed-chunk-13-1.png" width="100%" style="display: block; margin: auto;" />
 
 -   For the Data Paper we used [Inkscape](https://inkscape.org/es/) and
-    **ArcGis 10.6** to improve this maps.
+    **ArcGis 10.5** to improve this maps.
 
 And that's all !
 ----------------
@@ -430,5 +432,4 @@ And that's all !
 González, Patricia Mai, Laura Cappuccio, César Fagúndez-Pachón,
 Florencia Rossi, Franco Teixeira de Mello, Lucía Urtado & Daniel
 Pincheira-Donoso. (2020). 'Biodiversidata: A novel dataset for the
-vascular plant species diversity in Uruguay'. Biodiversity Data Journal.
-Available online: <https://doi.org/xxx>
+vascular plant species diversity in Uruguay'.  Available soon online !
