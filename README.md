@@ -8,7 +8,7 @@ The **Uruguayan Consortium of Biodiversity Data** is a collaborative association
 We aim to  make the biodiversity data of Uruguay available by integrating a broad range of resources including databases, publications, maps, reports and infographics. This repository contains all the script used in our project.
 
 You can find here scripts about:
-  - [Data Cleaning & Standardisation Scripts](/Useful%20Scripts)
+  - [Data Cleaning & Standardisation Scripts](/Data%20Cleaning%20and%20Standardisation%20Scripts)
   - [Figures for Tetrapods Data Paper "Biodiversidata: An Open-Access Biodiversity Database for Uruguay"](/Tetrapods%20Data%20Paper%20Scripts)
   - [Figures for Plants Data Paper "Biodiversidata: A novel dataset for the vascular plant species diversity in Uruguay"](/Plants%20Data%20Paper%20Scripts)
   - [Analysis of Hotspots of Tetrapods](/Hotspots%20Tetrapods)
