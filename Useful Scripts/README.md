@@ -1,12 +1,7 @@
 
+# rBiodiversidata
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3093998.svg)](https://doi.org/10.5281/zenodo.3093998)
-
-
-#rBiodiversidata
-
-These are useful scripts for biodiversity data cleaning, processing and
-quality controlling.
+These are useful scripts for biodiversity data cleaning, processing and quality controlling.
 
 
 ## Tetrapod vertebrates
@@ -24,9 +19,11 @@ quality controlling.
 3.  [Get the state or province of the geographic location of a record](#get-the-state-or-province-of-the-geographic-location-of-a-record) (DwC term: **stateProvince**).
 
 
-For each of the scripts, example runs have been provided. See **example data**:  
+### Example data
+
 - [tetrapodsSpeciesList.csv](tetrapodsSpeciesList.csv)  
-- [plantSpeciesList.csv](plantSpeciesList.csv)
+- [plantSpeciesList.csv](plantSpeciesList.csv)  
+
 
 ---
 
@@ -100,6 +97,4 @@ This script uses the function `GNcountrySubdivision()` from the R package [**geo
 
 <br>
 
-#### Code used for the [Biodiversidata](https://biodiversidata.org) Project.
-
-### For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)
+#### Code used for the [Biodiversidata](https://biodiversidata.org) Project. For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)
