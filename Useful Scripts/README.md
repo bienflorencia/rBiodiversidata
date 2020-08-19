@@ -95,6 +95,10 @@ The script contains a function that takes latitude and longitude geographic coor
 
 This script uses the function `GNcountrySubdivision()` from the R package [**geonames**](https://cran.r-project.org/web/packages/geonames/).
 
+- To use the API:
+  1. Create a user at https://www.geonames.org/login
+  2. Use it options(geonamesUsername="YOUR-USER-NAME")
+
 <br>
 
 #### Code used for the [Biodiversidata](https://biodiversidata.org) Project. For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)
