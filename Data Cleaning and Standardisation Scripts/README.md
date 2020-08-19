@@ -107,6 +107,9 @@ The script contains a function that takes day, month and year fields and returns
 
 > [get_event_date.R](get_event_date.R)
 
+This script uses the functions `ymd()` and `make_date()`from the R package [**lubridate**](https://github.com/tidyverse/lubridate).
+
+
 <br>
 
 #### Code used for the [Biodiversidata](https://biodiversidata.org) Project. For more information about Biodiversidata, contact [Florencia Grattarola](mailto:flograttarola@gmail.com)
