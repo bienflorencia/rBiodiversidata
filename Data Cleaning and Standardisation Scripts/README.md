@@ -14,9 +14,10 @@ These are useful scripts for biodiversity data cleaning, processing and quality 
 
 ## Plants
 
-1.  [Check species names and get taxonomic information for a species](#check-species-names-and-get-taxonomic-information-for-a-species). (DwC term: **scientificName**, **genus**, **specificEpithet**, **infraspecificEpithet**, **scientificNameAuthorship**, **taxonRank**, **taxonID**).
-2.  [Get higher rank taxonomic information for a     species](#get-higher-rank-taxonomic-information-for-a-species) (DwC terms: **kingdom**, **phylum**, **class**, **order**).
-3.  [Get the state or province of the geographic location of a record](#get-the-state-or-province-of-the-geographic-location-of-a-record) (DwC term: **stateProvince**).
+5.  [Check species names and get taxonomic information for a species](#check-species-names-and-get-taxonomic-information-for-a-species). (DwC term: **scientificName**, **genus**, **specificEpithet**, **infraspecificEpithet**, **scientificNameAuthorship**, **taxonRank**, **taxonID**).
+6.  [Get higher rank taxonomic information for a     species](#get-higher-rank-taxonomic-information-for-a-species) (DwC terms: **kingdom**, **phylum**, **class**, **order**).
+7.  [Get the state or province of the geographic location of a record](#get-the-state-or-province-of-the-geographic-location-of-a-record) (DwC term: **stateProvince**).
+8.  [Update de event date of a record](#update-de-event-date-of-a-record) (DwC term: **eventDate**)
 
 
 ### Example data
@@ -98,6 +99,13 @@ This script uses the function `GNcountrySubdivision()` from the R package [**geo
 - To use the API:
   1. Create a user at https://www.geonames.org/login
   2. Use it options(geonamesUsername="YOUR-USER-NAME")
+
+
+## 8) Update de event date of a record  
+
+The script contains a function that takes day, month and year fields and returns an eventDate column with the format YYYY-MM-DD. If only the year is known eventDate will be represented as YYYY, and if only the year and month are known, as YYYY-MM.
+
+> [get_event_date.R](get_event_date.R)
 
 <br>
 
