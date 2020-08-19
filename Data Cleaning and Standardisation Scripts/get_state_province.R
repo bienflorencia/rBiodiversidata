@@ -9,7 +9,7 @@ library(tidyverse)
 
 # FUNCTION
 
-options(geonamesUsername="YOUR-USER-NAME") # A (free) usernameis required and rate limits exist
+options(geonamesUsername="YOUR-USER-NAME") # A (free) username is required and rate limits exist
 
 getStateProvince <- function(lat, lng){
   subdivision <- try(GNcountrySubdivision(lat, lng, radius = "1", maxRows = 1), silent = TRUE)
