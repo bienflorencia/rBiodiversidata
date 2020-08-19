@@ -91,7 +91,7 @@ This script uses the function `classification()` from the R package [**taxize**]
 
 The script contains a function that takes latitude and longitude geographic coordinates and returns a stateProvince column with the country administrative subdivision.  As parameters it uses a maximum search radius of 1km and returns only the first match. 
 
-> [get_state_province.R](check_species_names.R)
+> [get_state_province.R](get_state_province.R)
 
 This script uses the function `GNcountrySubdivision()` from the R package [**geonames**](https://cran.r-project.org/web/packages/geonames/).
 
