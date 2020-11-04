@@ -1,7 +1,8 @@
 The following scripts were used to generate the analyses and figures of
-the Data Paper “Biodiversidata: A novel dataset for the vascular plant
-species diversity in Uruguay”, subitted to the Biodiversity Data
-Journal.
+the Data Paper [“Biodiversidata: A novel dataset for the vascular plant
+species diversity in Uruguay”](https://doi.org/10.3897/BDJ.8.e56850), 
+published in the **Biodiversity Data Journal**.
+
 
 The dataset **Biodiversidata\_Plants\_1.0.0** provides primary
 biodiversity data on extant vascular plant (native and introduced)
@@ -430,5 +431,7 @@ And that's all !
 **If you use the data please cite as:** Florencia Grattarola, Andrés
 González, Patricia Mai, Laura Cappuccio, César Fagúndez-Pachón,
 Florencia Rossi, Franco Teixeira de Mello, Lucía Urtado & Daniel
-Pincheira-Donoso. (2020). 'Biodiversidata: A novel dataset for the
-vascular plant species diversity in Uruguay'.  Available soon online !
+Pincheira-Donoso. (2020). Biodiversidata: A novel dataset for the
+vascular plant species diversity in Uruguay. *Biodiversity Data 
+Journal* 8: e56850. https://doi.org/10.3897/BDJ.8.e56850
+
