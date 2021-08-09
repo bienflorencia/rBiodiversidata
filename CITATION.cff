@@ -1,4 +1,4 @@
-cff-version: 2.0.0
+cff-version: 1.0.0
 message: "If you use/reuse this code for your work, please cite it as below."
 authors:
   - family-names: Florencia
@@ -6,4 +6,6 @@ authors:
     orcid: https://orcid.org/0000-0001-8282-5732
 title: bienflorencia/rBiodiversidata: R scripts
 version: 2.0
-date-released: 2021-09-09
+date-released: 2021-08-09
+doi: 10.5281/zenodo.173409451
+url: "hhttps://github.com/bienflorencia/rBiodiversidata"
