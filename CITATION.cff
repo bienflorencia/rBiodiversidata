@@ -1,0 +1,9 @@
+cff-version: 2.0.0
+message: "If you use/reuse this code for your work, please cite it as below."
+authors:
+  - family-names: Florencia
+    given-names: Grattarola
+    orcid: https://orcid.org/0000-0001-8282-5732
+title: bienflorencia/rBiodiversidata: R scripts
+version: 2.0
+date-released: 2021-09-09
