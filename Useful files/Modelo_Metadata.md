@@ -8,7 +8,7 @@
 **Data Licence**: Creative Commons Attribution (CC-BY) 4.0
 
 **Description**:
-==Una breve descripción del recurso con suficiente información para ayudar a los potenciales usuarios de los datos a comprender si pueden ser de su interés.==
+<mark>Una breve descripción del recurso con suficiente información para ayudar a los potenciales usuarios de los datos a comprender si pueden ser de su interés.<mark>
 
 **Contacts**
 La lista de personas y organizaciones que deben contactarse para obtener más información sobre el recurso
