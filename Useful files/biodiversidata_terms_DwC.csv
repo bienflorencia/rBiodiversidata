@@ -1,47 +1,49 @@
-﻿Term,Description
-occurrenceID,An identifier for the Occurrence (as opposed to a particular digital record of the occurrence)
-institutionCode,The name (or acronym) in use by the institution having custody of the object(s) or information referred to in the record
-basisOfRecord,"The specific nature of the data record. Examples: PreservedSpecimen, MaterialSample, HumanObservation, MachineObservation."
-catalogNumber,An identifier (preferably unique) for the record within the data set or collection
-organismRemarks,Comments or notes about the Organism instance
-recordedBy,"A person, group, or organization responsible for recording the original Occurrence"
-organismQuantity,A number or enumeration value for the quantity of organisms
-organismQuantityType,The type of quantification system used for the quantity of organisms
-establishmentMeans ,The process by which the biological individual(s) represented in the Occurrence became established at the location
-eventDate,The date-time or interval during which an Event occurred
-year,The four-digit year in which the Event occurred
-month,The ordinal month in which the Event occurred.
-day,The integer day of the month on which the Event occurred
-higherGeography,A list (concatenated and separated) of geographic names less specific than the information captured in the locality term
-continent,The name of the continent in which the Location occurs
-country,The name of the country or major administrative unit in which the Location occurs
-countryCode,The standard code for the country in which the Location occurs
-stateProvince,"The name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the Location occurs"
-locality,The specific description of the place
-locationRemarks,Comments or notes about the Location
-verbatimLatitude,The verbatim original latitude of the Location
-verbatimLongitude,The verbatim original longitude of the Location
-decimalLatitude,"The geographic latitude (in decimal degrees, using the spatial reference system given in geodeticDatum) of the geographic center of a Location"
-decimalLongitude,"The geographic longitude (in decimal degrees, using the spatial reference system given in geodeticDatum) of the geographic center of a Location"
-coordinateUncertaintyInMeters,The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location
-coordinatePrecision,A decimal representation of the precision of the coordinates given in the decimalLatitude and decimalLongitude
-geodeticDatum,"The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which the geographic coordinates given in decimalLatitude and decimalLongitude as based"
-georeferencedBy,"A list (concatenated and separated) of names of people, groups, or organizations who determined the georeference (spatial representation) for the Location"
-georeferenceProtocol ,"A description or reference to the methods used to determine the spatial footprint, coordinates, and uncertainties"
-georeferenceSources ,"A list (concatenated and separated) of maps, gazetteers, or other resources used to georeference the Location, described specifically enough to allow anyone in the future to use the same resources"
-identifiedBy,"A list (concatenated and separated) of names of people, groups, or organizations who assigned the Taxon to the subject"
-scientificName,"The full scientific name, with authorship and date information if known"
-scientificNameAuthorship,The authorship information for the scientificName formatted according to the conventions of the applicable nomenclaturalCode
-higherClassification ,A list (concatenated and separated) of taxa names terminating at the rank immediately superior to the taxon referenced in the taxon record
-kingdom,The full scientific name of the kingdom in which the taxon is classified
-phylum,The full scientific name of the phylum or division in which the taxon is classified
-class,The full scientific name of the class in which the taxon is classified
-order,The full scientific name of the order in which the taxon is classified
-family,The full scientific name of the family in which the taxon is classified
-genus,The full scientific name of the genus in which the taxon is classified
-specificEpithet,The name of the first or species epithet of the scientificName
-infraspecificEpithet,"The name of the lowest or terminal infraspecific epithet of the scientificName, excluding any rank designation"
-taxonRank,The taxonomic rank of the most specific name in the scientificName
-vernacularName ,A common or vernacular name
-taxonID,An identifier for the set of taxon information (data associated with the Taxon class). May be a global unique identifier or an identifier specific to the data set
-nameAccordingTo,The reference to the source in which the specific taxon concept circumscription is defined or implied
+﻿Campo,en Español,Descripción
+occurrenceID,ID del registro biológico,"Un identificador único del registro biológico (observación, ejemplar, fotografía, etc.). "
+institutionCode,Código de la institución,"El nombre completo de la institución que custodia el espécimen o la información del registro; seguido por su acrónimo en paréntesis, si tiene."
+basisOfRecord,Base del registro,Denota el origen o evidencia específica de la que se deriva el organismo. Documente este elemento de acuerdo a las definiciones e indicaciones que acompañan el vocabulario controlado.
+catalogNumber,Número de catálogo,"Un identificador (preferiblemente único) asignado al espécimen, muestra o lote en la colección biológica. Puede repetirse en caso de que los especímenes están agrupados en la colección (Lote, Frasco, Caja, etc)."
+organismRemarks,Comentarios del organismo,Comentarios o anotaciones sobre el organismo registrado. Se recomienda que la longitud de la descripción no supere 20 palabras.
+recordedBy,Registrado por,"Una lista (en una fila continua y separada por una barra vertical "" | "") de los nombres de las personas (observadores o recolectores) responsables de realizar el registro."
+organismQuantity,Cantidad del organismo,"Número de individuos presentes en el momento del registro biológico (observación, ejemplar, fotografía, etc.).ber or enumeration value for the quantity of organisms"
+organismQuantityType,Tipo de cantidad del organismo,"Valor que representa una cantidad colectada u observada del organismo, expresada en un sistema de medida estándar para el organismo como cepas, células, porcentaje de biomasa, etc."
+previousIdentifications,Identificaciones previas,"Una lista (en una fila continua y separada por una barra vertical "" | "") de asignaciones taxonómicas que se le han dado al organismo anteriormente. Puede contener la información de quién y cuándo realizó la identificación anterior."
+establishmentMeans ,Medios de establecimiento,Una afirmación que de cuenta si un organismo ha sido introducido a un lugar y tiempo determinado a través de actividad humana directa o indirecta. 
+associatedReferences,Referencias asociadas,"Una lista (en una fila continua y separada por una barra vertical "" | "") de los identificadores (publicación, referencia bibliográfica, identificador único global, URI) de la literatura asociada al registro biológico."
+eventDate,Fecha del evento,La fecha o el intervalo durante el cual se produjo el evento de observación o colecta de un organismo o muestra. Debe estar documentada en el esquema de codificación ISO 8601 (AAAA-MM-DD o para un intervalo de fechas: AAAA-MM-DD/AAAA-MM-DD).
+year,Año,Los cuatro dígitos del año durante el cual se produjo el evento de observación o colecta de un organismo o muestra.
+month,Mes,El mes en números enteros en que ocurrió durante el cual se produjo el evento de observación o colecta de un organismo o muestra.
+day,Día,El día en números enteros durante el cual se produjo el evento de observación o colecta de un organismo o muestra.
+higherGeography,Geografía superior,"Una lista (en una fila continua y separada por una barra vertical "" | "") de la geografía inmediatamente superior al sitio o ubicación donde se realizó el registro."
+continent,Continente,El nombre del continente en el que tiene lugar la ubicación. Documente este elemento de acuerdo a las definiciones e indicaciones que acompañan el vocabulario controlado.
+country,País,El nombre del país o unidad administrativa de mayor jerarquía de la ubicación.
+countryCode,Código del país,El código estándar para el país de la ubicación.
+stateProvince,Departamento,El nombre completo y sin abreviar de la siguiente región administrativa de menor jerarquía que País de la ubicación (Departamento).
+locality,Localidad,La información geográfica más específica de la ubicación.
+locationRemarks,Comentarios de la ubicación,Comentarios o anotaciones sobre la ubicación.
+verbatimLatitude,Latitud original,La latitud original de la ubicación.
+verbatimLongitude,Longitud original,La longitud original de la ubicación.
+decimalLatitude,Latitud decimal,"La latitud geográfica (en grados decimales, utilizando el sistema de referencia espacial provisto en geodeticDatum) del centro geográfico de una ubicación. "
+decimalLongitude,Longitud decimal,"La longitud geográfica (en grados decimales, mediante el sistema de referencia espacial provisto en geodeticDatum) del centro geográfico de una ubicación."
+coordinateUncertaintyInMeters,Incertidumbre de las coordenadas en metros,La distancia horizontal (en metros) de la decimalLatitude y decimalLongitude provistas describiendo el círculo más pequeño que contiene la totalidad de la ubicación. 
+coordinatePrecision,Precisión de las coordenadas,Una representación decimal de la precisión de las coordenadas provistas en decimalLatitude y decimalLongitude.
+geodeticDatum,Datum geodésico,"El elipsoide, datum geodésico, o sistema de referencia espacial (SRS) en el que se basan las coordenadas geográficas provistas en decimalLatitude y decimalLongitude. Se recomienda usar el código EPSG, si se conoce."
+georeferencedBy,Georreferenciado por,"Una lista (en una fila continua y separada por una barra vertical "" | "") de los nombres de las personas, grupos u organizaciones que determinaron la georreferencia (representación espacial) para la ubicación."
+georeferenceProtocol ,Georreferenciado por,"Una descripción o referencia a los métodos utilizados para determinar el footprint espacial, coordenadas, e incertidumbres."
+georeferenceSources ,Fuentes de georreferenciación,"Una lista (en una fila continua y separada por una barra vertical "" | "") de los mapas, gaceteros, u otros recursos utilizados para georreferenciar la ubicación."
+identifiedBy,Identificado por,"Una lista (en una fila continua y separada por una barra vertical "" | "") de los nombres de las personas responsables de identificar el organismo."
+scientificName,Nombre científico,El nombre científico canónico (sin la autoría) correspondiente a la categoría taxonómica a la que se logró la determinación del organismo observado o colectado. 
+scientificNameAuthorship,Autoría del nombre científico,"La información de autoría correspondiente al scientificName, usando el formato acorde a las convenciones del Código Nomenclatural aplicable."
+higherClassification ,Clasificación superior,"Una lista de los nombres de los taxones inmediatamente superiores a la categoría del taxón del scientificName. Se recomienda ordenar la lista comenzando con la categoría más alta y separando los nombres de cada categoría, con una barra vertical "" | "". Permite documentar categorías taxonómicas que no incluye el estándar (suborden, superfamilia, etc)."
+kingdom,Reino,El nombre científico completo del reino al que pertenece el taxón.
+phylum,Filo,El nombre científico completo del filo o división al que pertenece el taxón.
+class,Clase,El nombre científico completo de la clase al que pertenece el taxón.
+order,Orden,El nombre científico completo del orden al que pertenece el taxón.
+family,Familia,El nombre científico completo de la familia al que pertenece el taxón.
+genus,Género,El nombre científico completo del género al que pertenece el taxón.
+specificEpithet,Epíteto específico,El nombre del epíteto específico presente en el scientificName cuando la determinación se hizo hasta especie u otra categoría menor.
+infraspecificEpithet,Epíteto infragenérico,"El nombre del epíteto infraespecífico presente en el scientificName cuando la determinación se hizo con la categoría de taxón más baja o más especifica por debajo del epíteto específico (parte terminal del nombre), excluyendo cualquier otra denominación de categoría."
+taxonRank,Categoría del taxón,La categoría taxonómica del nombre más específico presente en el scientificName. Se recomienda el uso del vocabulario sugerido disponible para este elemento.
+vernacularName ,Nombre común,"El nombre o nombres comunes del taxón (en una fila continua y separada por una barra vertical "" | "")."
+taxonID,ID del taxón,Un identificador único global del taxón (datos asociados a la clasificación del Taxón) de acuerdo al nombre científico documentado en el elemento scientificName. 
+nameAccordingTo,ID del nombre de acuerdo con,"La referencia a la fuente en la que está definida o implícita la definición conceptual del taxón, tradicionalmente representado por el Latín ""sensu"" o ""sec."" (de secundum, que significa ""según"")."
