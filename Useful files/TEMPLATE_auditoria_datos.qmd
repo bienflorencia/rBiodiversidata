@@ -1,0 +1,106 @@
+---
+title: 'Auditoría de datos - Biodiversidata'
+subtitle: 'Dataset: `Name`'
+format:
+  pdf:
+    toc: true
+    number-sections: true
+    number-depth: 2
+    # colorlinks: true
+editor: source
+lang: es
+authors: 'Florencia Grattarola'
+date: 2024-10-18
+---
+
+::: {.callout-note}
+Los campos están en **negrita** y los valores en `monospace`.  
+Ante cualquier duda, siempre referirse al estándar Darwin Core (<https://dwc.tdwg.org/terms>).  
+:::
+
+## Comentarios generales {.unnumbered}
+
+...
+
+## Campos Darwin Core
+
+### Record-level
+
+::: {.callout-note icon=false title="**Campos**"}
+`type`, `modified`, `language`, `license`, `rightsHolder`, `accessRights`, `bibliographicCitation`, `references`, `institutionID`, `collectionID`, `datasetID`, `institutionCode`, `collectionCode`, `datasetName`, `ownerInstitutionCode`, `basisOfRecord`, `informationWithheld`, `dataGeneralizations` , `dynamicProperties`
+:::
+
+- [ ]
+- [x]
+
+### Occurrence
+
+::: {.callout-note icon=false title="**Campos Darwin Core**"}
+`occurrenceID`, `catalogNumber`, `recordNumber`, `recordedBy`, `recordedByID`, `individualCount`, `organismQuantity`, `organismQuantityType`, `sex`, `lifeStage`, `reproductiveCondition`, `caste`, `behavior`, `vitality`, `establishmentMeans`, `degreeOfEstablishment`, `pathway`, `georeferenceVerificationStatus`, `occurrenceStatus`, `associatedMedia`, `associatedOccurrences`, `associatedReferences`, `associatedTaxa`, `otherCatalogNumbers`, `occurrenceRemarks` 
+:::
+
+- [ ] 
+
+### Organism
+
+::: {.callout-note icon=false title="**Campos Darwin Core**"}
+`organismID`, `organismName`, `organismScope`, `associatedOrganisms`, `previousIdentifications`, `organismRemarks`
+:::
+
+- [ ]
+
+### MaterialEntity
+
+::: {.callout-note icon=false title="**Campos Darwin Core**"}
+`materialEntityID `, `preparations`, `disposition`, `verbatimLabel`, `associatedSequences`, `materialEntityRemarks`
+:::
+
+- [ ] 
+
+### MaterialSample
+
+::: {.callout-note icon=false title="**Campos Darwin Core**"}
+`materialSampleID `
+:::
+
+- [ ] 
+
+### Event
+
+::: {.callout-note icon=false title="**Campos Darwin Core**"}
+`eventID`, `parentEventID`, `eventType`, `fieldNumber`, `eventDate`, `eventTime`, `startDayOfYear`, `endDayOfYear`, `year`, `month`, `day`, `verbatimEventDate`, `habitat`, `samplingProtocol`, `sampleSizeValue`, `sampleSizeUnit`, `samplingEffort`, `fieldNotes`, `eventRemarks` 
+:::
+
+- [ ] 
+
+## Location
+
+::: {.callout-note icon=false title="**Campos Darwin Core**"}
+`locationID`, `higherGeographyID`, `higherGeography`, `continent`, `waterBody`, `islandGroup`, `island`, `country`, `countryCode`, `stateProvince`, `county`, `municipality`, `locality`, `verbatimLocality`, `minimumElevationInMeters`, `maximumElevationInMeters`, `verbatimElevation`, `verticalDatum`, `minimumDepthInMeters`, `maximumDepthInMeters`, `verbatimDepth`, `minimumDistanceAboveSurfaceInMeters`, `maximumDistanceAboveSurfaceInMeters`, `locationAccordingTo`, `locationRemarks`, `decimalLatitude`, `decimalLongitude`, `geodeticDatum`, `coordinateUncertaintyInMeters`, `coordinatePrecision`, `pointRadiusSpatialFit`, `verbatimCoordinates`, `verbatimLatitude`, `verbatimLongitude`, `verbatimCoordinateSystem`, `verbatimSRS`, `footprintWKT`, `footprintSRS`, `footprintSpatialFit`, `georeferencedBy`, `georeferencedDate`, `georeferenceProtocol`, `georeferenceSources`, `georeferenceRemarks` 
+:::
+
+- [ ] 
+
+### Identification
+
+::: {.callout-note icon=false title="**Campos Darwin Core**"}
+`identificationID`, `verbatimIdentification`, `identificationQualifier`, `typeStatus`, `identifiedBy`, `identifiedByID`, `dateIdentified`, `identificationReferences`, `identificationVerificationStatus`, `identificationRemarks` 
+:::
+
+ - [ ] 
+
+### Taxon
+
+::: {.callout-note icon=false title="**Campos Darwin Core**"}
+`taxonID`, `scientificNameID`, `acceptedNameUsageID`, `parentNameUsageID`, `originalNameUsageID`, `nameAccordingToID`, `namePublishedInID`, `taxonConceptID`, `scientificName`, `acceptedNameUsage`, `parentNameUsage`, `originalNameUsage`, `nameAccordingTo`, `namePublishedIn`, `namePublishedInYear`, `higherClassification`, `kingdom`, `phylum`, `class`, `order`, `superfamily`, `family`, `subfamily`, `tribe`, `subtribe`, `genus`, `genericName`, `subgenus`, `infragenericEpithet`, `specificEpithet`, `infraspecificEpithet`, `cultivarEpithet`, `taxonRank`, `verbatimTaxonRank`, `scientificNameAuthorship`, `vernacularName`, `nomenclaturalCode`, `taxonomicStatus`, `nomenclaturalStatus`, `taxonRemarks`
+:::
+
+ - [ ] 
+ 
+### MeasurementOrFact
+
+::: {.callout-note icon=false title="**Campos Darwin Core**"}
+`measurementID`, `parentMeasurementID`, `measurementType`, `measurementValue`, `measurementAccuracy`, `measurementUnit`, `measurementDeterminedBy`, `measurementDeterminedDate`, `measurementMethod`, `measurementRemarks`
+:::
+
+ - [ ] 
